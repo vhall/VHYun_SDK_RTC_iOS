@@ -66,6 +66,7 @@
     vc.anotherLiveRoomId= DEMO_Setting.ilssLiveRoomID;
     //    vc.anotherLiveRoomID= DEMO_Setting.anotherLiveRoomID;
     vc.userData         = DEMO_Setting.userData;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

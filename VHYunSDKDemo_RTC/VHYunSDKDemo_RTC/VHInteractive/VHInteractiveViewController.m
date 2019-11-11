@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *leaveButton;
 @property (weak, nonatomic) IBOutlet UIButton *unpublishButton;
 @property (weak, nonatomic) IBOutlet UILabel  *statusLabel;
+@property (weak, nonatomic) IBOutlet UIButton *beautyBtn;
 
 @end
 
@@ -77,6 +78,12 @@
     sender.selected = !sender.selected;
     [self switchCamera];
 }
+
+- (IBAction)beautyBtnAction:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    self.cameraView.beautifyEnable = sender.selected;
+}
+
 - (IBAction)requestPublishBtn:(id)sender {
     [self requestPublish];
 }
@@ -151,6 +158,7 @@
         [self backBtnClicked:nil];
     }];
     [alertController addAction:action];
+    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:alertController animated:YES completion:nil];
 }
 

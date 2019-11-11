@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C03276E52302975E0006939E /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276DF2302975A0006939E /* VHRTC.framework */; };
-		C03276E62302975E0006939E /* VHRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276DF2302975A0006939E /* VHRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03276E72302975E0006939E /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; };
 		C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03276E92302975E0006939E /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; };
 		C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C046AEC82362E28F0095E61E /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; };
 		C0B8792822E6F31300054CA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792722E6F31300054CA8 /* AppDelegate.m */; };
 		C0B8792B22E6F31300054CA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792A22E6F31300054CA8 /* ViewController.m */; };
 		C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8792C22E6F31300054CA8 /* Main.storyboard */; };
@@ -55,7 +54,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C03276E62302975E0006939E /* VHRTC.framework in Embed Frameworks */,
 				C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */,
 				C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */,
 			);
@@ -66,9 +64,9 @@
 
 /* Begin PBXFileReference section */
 		C017BA8722F28E3000A103EC /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
-		C03276DF2302975A0006939E /* VHRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHRTC.framework; sourceTree = "<group>"; };
 		C03276E02302975A0006939E /* VHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHCore.framework; sourceTree = "<group>"; };
 		C03276E12302975A0006939E /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
+		C046AEC72362E28F0095E61E /* VHRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHRTC.framework; sourceTree = "<group>"; };
 		C0B8792322E6F31300054CA8 /* VHYunSDKDemo_RTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHYunSDKDemo_RTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B8792622E6F31300054CA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B8792722E6F31300054CA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -140,7 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03276E72302975E0006939E /* VHCore.framework in Frameworks */,
-				C03276E52302975E0006939E /* VHRTC.framework in Frameworks */,
+				C046AEC82362E28F0095E61E /* VHRTC.framework in Frameworks */,
 				C03276E92302975E0006939E /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,7 +149,7 @@
 		C03276DE2302975A0006939E /* VHYunFrameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C03276DF2302975A0006939E /* VHRTC.framework */,
+				C046AEC72362E28F0095E61E /* VHRTC.framework */,
 				C03276E02302975A0006939E /* VHCore.framework */,
 				C03276E12302975A0006939E /* WebRTC.framework */,
 			);
@@ -592,6 +590,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
@@ -602,8 +601,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -612,6 +612,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
@@ -622,8 +623,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
