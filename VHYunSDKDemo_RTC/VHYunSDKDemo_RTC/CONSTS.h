@@ -16,16 +16,15 @@
 //4、设置plist中 Privacy - Microphone Usage Description  是否允许使用麦克风
 //5、设置以下数据 检查 Bundle ID 即可观看直播
 
-#define DEMO_AppID                  @""
+#define DEMO_AppID                  @""//http://www.vhallyun.com/docs/show/26.html
 #define DEMO_AccessToken            @""
 #define DEMO_third_party_user_id    [[[UIDevice currentDevice] identifierForVendor] UUIDString]
 
-#define DEMO_PlayerRoomID           @""
+#define DEMO_PlayerRoomID           @""//http://www.vhallyun.com/docs/show/49.html
 #define DEMO_PublishRoomID          @""
 #define DEMO_RecordID               @""
 #define DEMO_DocChannelID           @""
 #define DEMO_IMChannelID            @""
 #define DEMO_InteractiveID          @""
 #define DEMO_GroupID                @""
-
 #endif /* CONSTS_h */

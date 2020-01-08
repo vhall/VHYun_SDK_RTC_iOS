@@ -201,24 +201,28 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 
 /*
  * 关闭音频
+ * param code 200 success, otherwise fail
  */
 - (void) muteAudio;
 - (void) muteAudioWithFinish:(FinishBlock _Nullable)finish;
 
 /*
  * 取消关闭音频
+ * param code 200 success, otherwise fail
  */
 - (void) unmuteAudio;
 - (void) unmuteAudioWithFinish:(FinishBlock _Nullable)finish;
 
 /*
  * 关闭视频
+ * param code 200 success, otherwise fail
  */
 - (void) muteVideo;
 - (void) muteVideoWithFinish:(FinishBlock _Nullable)finish;
 
 /*
  * 取消关闭视频
+ * param code 200 success, otherwise fail
  */
 - (void) unmuteVideo;
 - (void) unmuteVideoWithFinish:(FinishBlock _Nullable)finish;

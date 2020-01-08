@@ -129,6 +129,16 @@ void dispatchTimer(id target, double timeInterval,void (^handler)(dispatch_sourc
     _titleLabel.text = _item[@"third_party_user_id"];
     _status   = [_item[@"status"] integerValue]; // 用户状态 1 推流中 2 观看中 3 受邀中  4 申请上麦中
     
+    _titleLabel.textColor = (_status == 1)?[UIColor redColor]:[UIColor whiteColor];
+    
+    if(self.isOTOCall)
+    {
+        [_statusBtn setTitle:@"呼叫" forState:0];
+        _statusBtn.hidden  = [DEMO_Setting.third_party_user_id isEqualToString:_titleLabel.text] || (_status == 1);
+        _statusBtn1.hidden = YES;
+        return;
+    }
+    
     _statusBtn.hidden  = [DEMO_Setting.third_party_user_id isEqualToString:_titleLabel.text];
     _statusBtn1.hidden = [DEMO_Setting.third_party_user_id isEqualToString:_titleLabel.text];
     _statusLabel.width = _statusBtn.hidden?100:50;
@@ -190,6 +200,8 @@ void dispatchTimer(id target, double timeInterval,void (^handler)(dispatch_sourc
     if(_statusBtn.hidden)
         _statusLabel.text = [_statusLabel.text stringByAppendingString:@" (myself)"];
 }
+
+
 
 -(void)layoutSubviews
 {

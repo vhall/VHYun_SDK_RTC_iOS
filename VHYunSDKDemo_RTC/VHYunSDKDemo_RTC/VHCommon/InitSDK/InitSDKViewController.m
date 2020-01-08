@@ -29,10 +29,6 @@
     
 }
 
-- (void)viewDidLayoutSubviews
-{
-    [self.view viewWithTag:10099].top = _userIDTextField.bottom-2;
-}
 /*
 #pragma mark - Navigation
 
@@ -55,9 +51,6 @@
     _nicknameTextField.text = DEMO_Setting.nickName;
     _avatarTextField.text = DEMO_Setting.avatar;
     _bundleIDLabel.text = [NSBundle mainBundle].bundleIdentifier;
-
-    if([self respondsToSelector:@selector(initTestSwitch)])
-        [self initTestSwitch];
 }
 
 - (IBAction)nextBtnClicked:(id)sender {
@@ -104,35 +97,4 @@
     [textField resignFirstResponder];
     return YES;
 }
-
-#pragma mark - 测试正式环境开关不可以暴露给客户
-- (void)initTestSwitch
-{
-    [VHLiveBase setLogLevel:(VHLogLevel)5];
-    [VHLiveBase printLogToConsole:YES];
-    
-    UISwitch *testSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(25,0, 10, 10)];
-    testSwitch.tag = 10099;
-    [testSwitch addTarget:self action:@selector(testSwitchValueChanged:) forControlEvents:UIControlEventValueChanged];
-    UILabel *l = [[UILabel alloc]initWithFrame:CGRectMake(testSwitch.width, 0, 80, testSwitch.height)];
-    l.text = @"Release";
-    l.textColor = [UIColor redColor];
-    [testSwitch addSubview:l];
-    [self.view addSubview:testSwitch];
-    
-    testSwitch.top = _userIDTextField.bottom-2;
-#if (VHALL_HOST_INDEX == 0)// 测试环境
-    testSwitch.on = NO;
-#elif (VHALL_HOST_INDEX == 1)// 生产环境
-    testSwitch.on = YES;
-#endif
-    
-    [self testSwitchValueChanged:testSwitch];
-}
-
-- (void)testSwitchValueChanged:(UISwitch *)uiSwitch
-{
-    ((BOOL(*)(id,SEL,BOOL))objc_msgSend)([VHLiveBase class],@selector(setTestServerUrl:),!uiSwitch.on);
-}
-
 @end

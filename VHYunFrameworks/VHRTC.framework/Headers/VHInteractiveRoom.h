@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "VHRenderView.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 /*
  * 互动房间状态
  */
@@ -22,7 +24,7 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
 @protocol  VHInteractiveRoomDelegate;
 
 @interface VHInteractiveRoom : NSObject
-- (instancetype)initWithLogParam:(NSDictionary*)logParam;
+- (instancetype)initWithLogParam:(nullable NSDictionary*)logParam;
 @property (nonatomic, weak) id <VHInteractiveRoomDelegate> delegate;
 /*
  * 当前房间状态
@@ -321,3 +323,4 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
 284002 VHRoomErrorClientFailedSDP
 284003 VHRoomErrorSignaling
 */
+NS_ASSUME_NONNULL_END

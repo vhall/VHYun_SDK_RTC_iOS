@@ -11,7 +11,6 @@
 		C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C03276E92302975E0006939E /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; };
 		C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C046AEC82362E28F0095E61E /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; };
 		C0B8792822E6F31300054CA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792722E6F31300054CA8 /* AppDelegate.m */; };
 		C0B8792B22E6F31300054CA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792A22E6F31300054CA8 /* ViewController.m */; };
 		C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8792C22E6F31300054CA8 /* Main.storyboard */; };
@@ -45,6 +44,13 @@
 		C0B8799C22E6F3F500054CA8 /* VHLayoutView_1vN_Pip.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8798B22E6F3F500054CA8 /* VHLayoutView_1vN_Pip.m */; };
 		C0B879A522E6F66C00054CA8 /* JXTAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B879A022E6F66C00054CA8 /* JXTAlertController.m */; };
 		C0B879A622E6F66C00054CA8 /* JXTAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B879A422E6F66C00054CA8 /* JXTAlertView.m */; };
+		C0C00B0623979D0300DB0DA5 /* VHOTOCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B0423979D0300DB0DA5 /* VHOTOCallViewController.m */; };
+		C0C00B0723979D0300DB0DA5 /* VHOTOCallViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0C00B0523979D0300DB0DA5 /* VHOTOCallViewController.xib */; };
+		C0C00B0A2397AD0800DB0DA5 /* VHOTOCallViewController+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B092397AD0800DB0DA5 /* VHOTOCallViewController+Call.m */; };
+		C0C00B0D2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */; };
+		C0C00B112397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */; };
+		C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; };
+		C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -55,6 +61,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */,
+				C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */,
 				C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -130,6 +137,15 @@
 		C0B879A122E6F66C00054CA8 /* JXTAlertManagerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertManagerHeader.h; sourceTree = "<group>"; };
 		C0B879A322E6F66C00054CA8 /* JXTAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXTAlertView.h; sourceTree = "<group>"; };
 		C0B879A422E6F66C00054CA8 /* JXTAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXTAlertView.m; sourceTree = "<group>"; };
+		C0C00B0323979D0300DB0DA5 /* VHOTOCallViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VHOTOCallViewController.h; sourceTree = "<group>"; };
+		C0C00B0423979D0300DB0DA5 /* VHOTOCallViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VHOTOCallViewController.m; sourceTree = "<group>"; };
+		C0C00B0523979D0300DB0DA5 /* VHOTOCallViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VHOTOCallViewController.xib; sourceTree = "<group>"; };
+		C0C00B082397AD0800DB0DA5 /* VHOTOCallViewController+Call.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHOTOCallViewController+Call.h"; sourceTree = "<group>"; };
+		C0C00B092397AD0800DB0DA5 /* VHOTOCallViewController+Call.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VHOTOCallViewController+Call.m"; sourceTree = "<group>"; };
+		C0C00B0B2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHOTOCallViewController+Layout.h"; sourceTree = "<group>"; };
+		C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VHOTOCallViewController+Layout.m"; sourceTree = "<group>"; };
+		C0C00B0F2397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHOTOCallViewController+TableView.h"; sourceTree = "<group>"; };
+		C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VHOTOCallViewController+TableView.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,7 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03276E72302975E0006939E /* VHCore.framework in Frameworks */,
-				C046AEC82362E28F0095E61E /* VHRTC.framework in Frameworks */,
+				C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */,
 				C03276E92302975E0006939E /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +199,7 @@
 				C0B8792922E6F31300054CA8 /* ViewController.h */,
 				C0B8792A22E6F31300054CA8 /* ViewController.m */,
 				C0B8797822E6F3F500054CA8 /* VHInteractive */,
+				C0C00B0223979CC400DB0DA5 /* VHOTOCall */,
 				C0B8792C22E6F31300054CA8 /* Main.storyboard */,
 				C0B8792F22E6F32600054CA8 /* Assets.xcassets */,
 				C0B8793122E6F32600054CA8 /* LaunchScreen.storyboard */,
@@ -304,18 +321,18 @@
 		C0B8798322E6F3F500054CA8 /* VHInteractiveViewLayout */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8798422E6F3F500054CA8 /* VHLayoutView_1vN_Pip_Left.m */,
-				C0B8798522E6F3F500054CA8 /* VHLayoutView_1vN_Pip.h */,
-				C0B8798622E6F3F500054CA8 /* VHLayoutView_1vN.m */,
-				C0B8798722E6F3F500054CA8 /* VHLayoutItem.m */,
-				C0B8798822E6F3F500054CA8 /* VHLayoutView.m */,
-				C0B8798922E6F3F500054CA8 /* VHLayoutView_1vN_Left.m */,
-				C0B8798A22E6F3F500054CA8 /* VHLayoutView_1vN_Pip_Left.h */,
-				C0B8798B22E6F3F500054CA8 /* VHLayoutView_1vN_Pip.m */,
-				C0B8798C22E6F3F500054CA8 /* VHLayoutItem.h */,
-				C0B8798D22E6F3F500054CA8 /* VHLayoutView_1vN.h */,
 				C0B8798E22E6F3F500054CA8 /* VHLayoutView.h */,
+				C0B8798822E6F3F500054CA8 /* VHLayoutView.m */,
+				C0B8798D22E6F3F500054CA8 /* VHLayoutView_1vN.h */,
+				C0B8798622E6F3F500054CA8 /* VHLayoutView_1vN.m */,
 				C0B8798F22E6F3F500054CA8 /* VHLayoutView_1vN_Left.h */,
+				C0B8798922E6F3F500054CA8 /* VHLayoutView_1vN_Left.m */,
+				C0B8798522E6F3F500054CA8 /* VHLayoutView_1vN_Pip.h */,
+				C0B8798B22E6F3F500054CA8 /* VHLayoutView_1vN_Pip.m */,
+				C0B8798A22E6F3F500054CA8 /* VHLayoutView_1vN_Pip_Left.h */,
+				C0B8798422E6F3F500054CA8 /* VHLayoutView_1vN_Pip_Left.m */,
+				C0B8798C22E6F3F500054CA8 /* VHLayoutItem.h */,
+				C0B8798722E6F3F500054CA8 /* VHLayoutItem.m */,
 			);
 			path = VHInteractiveViewLayout;
 			sourceTree = "<group>";
@@ -348,6 +365,22 @@
 			path = AlertView;
 			sourceTree = "<group>";
 		};
+		C0C00B0223979CC400DB0DA5 /* VHOTOCall */ = {
+			isa = PBXGroup;
+			children = (
+				C0C00B0323979D0300DB0DA5 /* VHOTOCallViewController.h */,
+				C0C00B0423979D0300DB0DA5 /* VHOTOCallViewController.m */,
+				C0C00B0523979D0300DB0DA5 /* VHOTOCallViewController.xib */,
+				C0C00B082397AD0800DB0DA5 /* VHOTOCallViewController+Call.h */,
+				C0C00B092397AD0800DB0DA5 /* VHOTOCallViewController+Call.m */,
+				C0C00B0B2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.h */,
+				C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */,
+				C0C00B0F2397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.h */,
+				C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */,
+			);
+			path = VHOTOCall;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -359,6 +392,7 @@
 				C0B8792022E6F31300054CA8 /* Frameworks */,
 				C0B8792122E6F31300054CA8 /* Resources */,
 				C0B8794922E6F3A100054CA8 /* Embed Frameworks */,
+				C0672AF023A219C2002D11C0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -407,6 +441,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0B8793322E6F32600054CA8 /* LaunchScreen.storyboard in Resources */,
+				C0C00B0723979D0300DB0DA5 /* VHOTOCallViewController.xib in Resources */,
 				C0B8793022E6F32600054CA8 /* Assets.xcassets in Resources */,
 				C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */,
 				C0B8796D22E6F3C900054CA8 /* InitSDKViewController.xib in Resources */,
@@ -415,6 +450,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C0672AF023A219C2002D11C0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C0B8791F22E6F31300054CA8 /* Sources */ = {
@@ -427,17 +482,21 @@
 				C0B8796C22E6F3C900054CA8 /* InitSDKViewController.m in Sources */,
 				C0B879A522E6F66C00054CA8 /* JXTAlertController.m in Sources */,
 				C0B8797622E6F3C900054CA8 /* VHStystemSetting.m in Sources */,
+				C0C00B112397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m in Sources */,
 				C0B879A622E6F66C00054CA8 /* JXTAlertView.m in Sources */,
 				C0B8793622E6F32600054CA8 /* main.m in Sources */,
 				C0B8799C22E6F3F500054CA8 /* VHLayoutView_1vN_Pip.m in Sources */,
 				C0B8796B22E6F3C900054CA8 /* ViewController+vhall.m in Sources */,
+				C0C00B0623979D0300DB0DA5 /* VHOTOCallViewController.m in Sources */,
 				C0B8797322E6F3C900054CA8 /* UIView+ITTAdditions.m in Sources */,
 				C0B8799122E6F3F500054CA8 /* VHInteractiveTableViewCell.m in Sources */,
 				C0B8797522E6F3C900054CA8 /* MBHUDHelper.m in Sources */,
 				C0B8796E22E6F3C900054CA8 /* VHStatisticsStystem.m in Sources */,
+				C0C00B0A2397AD0800DB0DA5 /* VHOTOCallViewController+Call.m in Sources */,
 				C0B8797722E6F3C900054CA8 /* VHBaseViewController.m in Sources */,
 				C0B8792822E6F31300054CA8 /* AppDelegate.m in Sources */,
 				C0B8799622E6F3F500054CA8 /* VHInteractiveViewController+TableView.m in Sources */,
+				C0C00B0D2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m in Sources */,
 				C0B8799222E6F3F500054CA8 /* VHInteractiveViewController.m in Sources */,
 				C0B8799822E6F3F500054CA8 /* VHLayoutView_1vN.m in Sources */,
 				C0B8797422E6F3C900054CA8 /* MBProgressHUD.m in Sources */,
@@ -601,7 +660,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -623,7 +682,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.vhall.UploadDemo.en;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

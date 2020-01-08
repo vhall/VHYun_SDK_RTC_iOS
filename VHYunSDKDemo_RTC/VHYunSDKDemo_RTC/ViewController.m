@@ -10,6 +10,8 @@
 #import "ViewController+vhall.h"
 #import <VHRTC/VHInteractiveRoom.h>
 #import "VHInteractiveViewController.h"
+#import "VHOTOCallViewController.h"
+
 #import <AVFoundation/AVFoundation.h>
 
 #define VHScreenHeight          ([UIScreen mainScreen].bounds.size.height)
@@ -70,6 +72,28 @@
     [self presentViewController:vc animated:YES completion:nil];
 }
 
+- (void)callBtnClicked:(UIButton*)btn
+{
+    if(![self isCaptureDeviceOK])
+        return;
+    
+    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
+    {
+        [self showMsg:@"参数不能为空" afterDelay:1.5];
+        return;
+    }
+
+    DEMO_Setting.ilssRoomID     = _businessIDTextField.text;
+    DEMO_Setting.ilssLiveRoomID = _roomIDTextField.text;
+    DEMO_Setting.accessToken    = _accessTokenTextField.text;
+
+    VHOTOCallViewController * vc = [[VHOTOCallViewController alloc] init];
+    vc.ilssRoomID       = DEMO_Setting.ilssRoomID;
+    vc.accessToken      = DEMO_Setting.accessToken;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
 - (void)initSDKView
 {
     
@@ -106,6 +130,12 @@
     [nextBtn addTarget:self action:@selector(inavBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     nextBtn.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:nextBtn];
+    
+    UIButton *callBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, nextBtn.bottom+10, accessTokenTextField.width, accessTokenTextField.height)];
+    [callBtn setTitle:@"一对一呼叫" forState:UIControlStateNormal];
+    [callBtn addTarget:self action:@selector(callBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    callBtn.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:callBtn];
 
     UILabel * label= [[UILabel alloc] initWithFrame:CGRectMake(0, VHScreenHeight - 100, VHScreenWidth, 20)];
     label.font = [UIFont systemFontOfSize:12];

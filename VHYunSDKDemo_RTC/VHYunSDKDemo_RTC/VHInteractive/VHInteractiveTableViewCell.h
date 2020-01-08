@@ -17,4 +17,5 @@ typedef void(^actionBlock)(NSInteger type,NSDictionary* item);
 
 @property(nonatomic,strong) actionBlock  action;
 @property (nonatomic,copy)NSDictionary *item;
+@property (nonatomic,assign)BOOL isOTOCall;//是否1v1呼叫
 @end
