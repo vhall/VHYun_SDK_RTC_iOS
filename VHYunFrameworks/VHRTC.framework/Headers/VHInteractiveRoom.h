@@ -238,6 +238,9 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
  @param finish code 200 成功 message具体信息
  */
 - (void)switchDualStream:(NSString *)streamId type:(int)type finish:(void(^)(int code, NSString * _Nullable message))finish;
+
+//强制用户离开(下线)互动房间
++ (BOOL)forceLeaveRoomWithInavId:(const NSString *)inavId roomID:(const NSString *)roomId  accessToken:(const NSString *)accessToken;
 @end
 
 /*

@@ -18,7 +18,8 @@
 
 @property(nonatomic,copy) NSString * anotherLiveRoomId; //旁路直播间ID
 @property(nonatomic,copy) NSString * accessToken;
-@property(nonatomic,copy) NSString * userData;//
+@property(nonatomic,copy) NSString * userData;//用户数据 进入房间自定义数据
+@property(nonatomic,copy) NSString * streamData;//流数据 推流前放入本地流的自定义数据
 
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;//画面布局容器

@@ -51,6 +51,8 @@
 {
     if(self.cameraView)
     {
+        [self.cameraView setAttributes:self.streamData];
+        
         [self.room publishWithCameraView:self.cameraView];
     }
 }
@@ -265,11 +267,13 @@
 
 - (void)room:(VHInteractiveRoom *)room didAddAttendView:(VHRenderView *)attendView
 {
+    /// 刷新列表
+    [self updateUserListData];
     //布局连麦界面 renderViewsById 房间中所有上麦人视频view
     [self startListeningStream:attendView];
 
     [self addView:attendView attributes:attendView.userId];
-    NSLog(@"--- userID: %@; userData %@",attendView.userId,attendView.userData);
+    NSLog(@"--- userID: %@; userData %@; streamAttributes %@",attendView.userId,attendView.userData,attendView.streamAttributes);
 }
 - (void)room:(VHInteractiveRoom *)room didRemovedAttendView:(VHRenderView *)attendView
 {
@@ -391,23 +395,23 @@
  */
 - (void)room:(VHInteractiveRoom *)room userChangeInfo:(NSDictionary *)info
 {
-    if([info[@"status"] intValue] == 3)//tatus 0 人员变化 1 上麦 2 下麦 3拒绝上麦
-        switch ([info[@"status"] intValue] ) {
-            case 1:
-                [self showMsg:[NSString stringWithFormat:@"%@上麦",info[@"third_party_user_id"]] afterDelay:2];
-                break;
-            case 2:
-                [self showMsg:[NSString stringWithFormat:@"%@下麦",info[@"third_party_user_id"]] afterDelay:2];
-                break;
-            case 3:
-                [self showMsg:[NSString stringWithFormat:@"%@拒绝上麦",info[@"third_party_user_id"]] afterDelay:2];
-                break;
-                
-            default:
-                break;
-        }
-    
-    
+//    if([info[@"status"] intValue] == 3)
+    //tatus 0 人员变化 1 上麦 2 下麦 3拒绝上麦
+    switch ([info[@"status"] intValue] ) {
+        case 1:
+            [self showMsg:[NSString stringWithFormat:@"%@上麦",info[@"third_party_user_id"]] afterDelay:2];
+            break;
+        case 2:
+            [self showMsg:[NSString stringWithFormat:@"%@下麦",info[@"third_party_user_id"]] afterDelay:2];
+            break;
+        case 3:
+            [self showMsg:[NSString stringWithFormat:@"%@拒绝上麦",info[@"third_party_user_id"]] afterDelay:2];
+            break;
+            
+        default:
+            break;
+    }
+
     [self updateUserListData];
     self.onlineNumLabel.text = [NSString stringWithFormat:@"在线 %@ 人",info[@"online"]];
 }

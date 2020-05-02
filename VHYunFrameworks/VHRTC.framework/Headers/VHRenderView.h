@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -230,7 +231,7 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 /*
  * 切换前后摄像头
  */
-- (BOOL) switchCamera;
+- (AVCaptureDevicePosition) switchCamera;
 
 /*
  * 流状态监听

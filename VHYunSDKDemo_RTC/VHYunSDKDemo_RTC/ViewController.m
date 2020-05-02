@@ -67,7 +67,8 @@
     vc.accessToken      = DEMO_Setting.accessToken;
     vc.anotherLiveRoomId= DEMO_Setting.ilssLiveRoomID;
     //    vc.anotherLiveRoomID= DEMO_Setting.anotherLiveRoomID;
-    vc.userData         = DEMO_Setting.userData;
+    vc.userData         =  [DEMO_Setting.nickName stringByAppendingString:@"进入房间自定义数据"] ;
+    vc.streamData       =  [DEMO_Setting.nickName stringByAppendingString:@"推流前放入本地流的自定义数据"] ;
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
