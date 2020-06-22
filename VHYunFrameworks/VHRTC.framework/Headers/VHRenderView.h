@@ -234,10 +234,22 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 - (AVCaptureDevicePosition) switchCamera;
 
 /*
+ * 配置旁路混流主屏
+ * mode 默认传 nil
+ */
+- (void)setMixLayoutMainScreen:(NSString*_Nullable)mode finish:(void(^)(int code, NSString * _Nullable message))finish;
+
+/*
+ * 获取流状态
+ * 注意：如果开启了流状态监听，必须调用stopStats 停止监听，否则无法释放造成内存泄漏
+ */
+- (void)getSsrcStats:(StatsCallback _Nonnull)callback;
+
+/*
  * 流状态监听
  * 注意：如果开启了流状态监听，必须调用stopStats 停止监听，否则无法释放造成内存泄漏
  */
-- (BOOL) startStatsWithCallback:(StatsCallback )callback;
+- (BOOL) startStatsWithCallback:(StatsCallback )callback __attribute__((deprecated("Please use the getSsrcStats:")));;
 
 /*
  * 停止流状态监听

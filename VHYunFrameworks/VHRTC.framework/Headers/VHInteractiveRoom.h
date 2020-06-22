@@ -240,7 +240,11 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
 - (void)switchDualStream:(NSString *)streamId type:(int)type finish:(void(^)(int code, NSString * _Nullable message))finish;
 
 //强制用户离开(下线)互动房间
-+ (BOOL)forceLeaveRoomWithInavId:(const NSString *)inavId roomID:(const NSString *)roomId  accessToken:(const NSString *)accessToken;
++ (BOOL)forceLeaveRoomWithInavId:(const NSString *)inavId
+                      kickUserId:(const NSString *)kick_user_id
+                     accessToken:(const NSString *)accessToken
+               onRequestFinished:(void(^)(id data))success
+                 onRequestFailed:(void(^)(NSError *error))failed;
 @end
 
 /*
