@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VHRenderView.h"
+#import "VHBroadCastDef.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,6 +21,8 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
     VHInteractiveRoomStatusDisconnected,
     VHInteractiveRoomStatusError
 };
+// param code 200 success ,otherwise fail;
+typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 
 @protocol  VHInteractiveRoomDelegate;
 
@@ -46,6 +49,10 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
  * 房间id
  */
 @property (nonatomic, copy,   readonly) NSString        *roomId;
+/*
+ * 旁路房间ID
+ */
+@property (nonatomic, copy,   readonly) NSString        *broadCastId;
 
 /*
  * 当前推流状态
@@ -72,6 +79,7 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
  publish_inav_stream    推流
  askfor_inav_publish    邀请用户上麦推流
  audit_inav_publish     审核申请上麦
+ force_leave_inav       强制用户下线
  */
 @property (nonatomic,copy,readonly)NSArray      * permission;
 
@@ -79,21 +87,31 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
 #pragma mark - 房间操作
 /*
  * 加入房间
- * @param roomId 互动房间id
+ * @param inav_id 互动房间id
  * @param accessToken  accessToken
  * 调用完成等待代理回调确认接下来操作
  */
-- (void)enterRoomWithRoomId:(const NSString *)roomId accessToken:(const NSString *)accessToken;
+- (void)enterRoomWithRoomId:(const NSString *)inav_id accessToken:(const NSString *)accessToken;
 
 /*
  * 加入房间
- * @param roomId 互动房间id
+ * @param inav_id 互动房间id
  * @param accessToken  accessToken
  * @param userData  用户数据可以携带不超过255字符的字符串 可在VHRenderView中获取此值
  * 调用完成等待代理回调确认接下来操作
  */
-- (void)enterRoomWithRoomId:(const NSString *)roomId accessToken:(const NSString *)accessToken userData:(NSString*)userData;
+- (void)enterRoomWithRoomId:(const NSString *)inav_id accessToken:(const NSString *)accessToken userData:(NSString*)userData;
 
+/*
+* 加入房间
+* @param inav_id 互动房间id
+* @param broadCastId 旁路房间id
+* @param accessToken  accessToken
+* @param userData  用户数据可以携带不超过255字符的字符串 可在VHRenderView中获取此值
+* 调用完成等待代理回调确认接下来操作
+*/
+
+- (void)enterRoomWithRoomId:(const NSString *)inav_id broadCastId:(const NSString *)broadCastId accessToken:(const NSString *)accessToken userData:(NSString*)userData;
 
 /*
  * 离开房间
@@ -177,50 +195,26 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
 /*
  * 开启/关闭旁路直播
  * @param isOpen Yes开启旁路直播   NO关闭旁路直播
- * @param roomID 旁路直播间
- */
-- (BOOL)publishAnotherLive:(BOOL)isOpen liveRoomId:(const NSString *)liveRoomId completeBlock:(void(^)(NSError *error)) block;
-
+ * prarm [self baseConfigRoomBroadCast:4 layout:4]; 调用此函数配置视频质量参数和旁路布局
+ * 设置成功后会自动推旁路
+*/
+- (BOOL)publishAnotherLive:(BOOL)isOpen param:(NSDictionary*)param completeBlock:(void(^)(NSError *error)) block;
 /*
- * 开启/关闭旁路直播
- * @param isOpen Yes开启旁路直播   NO关闭旁路直播
- * @param roomID 旁路直播间
- * @param param  旁路参数 每一项都是可选项
- 
- dpi                分辨率 480P, 540P, 720P (默认),1080P
- frame_rate         帧率 15, 20 (默认), 25 帧
- bitrate            码率 800, 1000 (默认), 1200
- layout             旁路直播布局 具体见下旁路直播布局设置
- max_screen_stream  设置屏占比最大的流ID
- 
- layout 布局参数设置
- CANVAS_LAYOUT_PATTERN_GRID_1     string     一人铺满
- CANVAS_LAYOUT_PATTERN_GRID_2_H     string     左右两格
- CANVAS_LAYOUT_PATTERN_GRID_3_E     string     正品字
- CANVAS_LAYOUT_PATTERN_GRID_3_D     string     倒品字
- CANVAS_LAYOUT_PATTERN_GRID_4_M     string     2行x2列
- CANVAS_LAYOUT_PATTERN_GRID_5_D     string     2行，上3下2
- CANVAS_LAYOUT_PATTERN_GRID_6_E     string     2行x3列
- CANVAS_LAYOUT_PATTERN_GRID_9_E     string     3行x3列
- CANVAS_LAYOUT_PATTERN_FLOAT_2_1DR     string     大屏铺满，小屏悬浮右下角
- CANVAS_LAYOUT_PATTERN_FLOAT_2_1DL     string     大屏铺满，小屏悬浮左下角
- CANVAS_LAYOUT_PATTERN_FLOAT_3_2DL     string     大屏铺满，2小屏悬浮左下角
- CANVAS_LAYOUT_PATTERN_FLOAT_6_5D     string     大屏铺满，一行5个悬浮于下面
- CANVAS_LAYOUT_PATTERN_FLOAT_6_5T     string     大屏铺满，一行5个悬浮于上面
- CANVAS_LAYOUT_PATTERN_TILED_5_1T4D     string     主次平铺，一行4个位于底部
- CANVAS_LAYOUT_PATTERN_TILED_5_1D4T     string     主次平铺，一行4个位于顶部
- CANVAS_LAYOUT_PATTERN_TILED_5_1L4R     string     主次平铺，一列4个位于右边
- CANVAS_LAYOUT_PATTERN_TILED_5_1R4L     string     主次平铺，一列4个位于左边
- CANVAS_LAYOUT_PATTERN_TILED_6_1T5D     string     主次平铺，一行5个位于底部
- CANVAS_LAYOUT_PATTERN_TILED_6_1D5T     string     主次平铺，一行5个位于顶部
- CANVAS_LAYOUT_PATTERN_TILED_9_1L8R     string     主次平铺，右边为（2列x4行=8个块）
- CANVAS_LAYOUT_PATTERN_TILED_9_1R8L     string     主次平铺，左边为（2列x4行=8个块）
- CANVAS_LAYOUT_PATTERN_TILED_13_1L12R     string     主次平铺，右边为（3列x4行=12个块）
- CANVAS_LAYOUT_PATTERN_TILED_17_1TL12GRID     string     主次平铺，1V16
- CANVAS_LAYOUT_PATTERN_CUSTOM     string     自定义，当使用坐标布局接口时
+ * 基础配置旁路混流参数
+ * @parma definition // 视频质量参数，推荐使用。即（分辨率+帧率+码率）
+ * @parma layout     // 旁路布局模板（非自定义布局）
+*/
+- (NSDictionary*)baseConfigRoomBroadCast:(BroadcastDefinition)definition layout:(BroadcastLayout)layout;
+/*
+ * 配置旁路混流布局 VHConstantDef.h CANVAS_LAYOUT
+ * layoutMode CANVAS_LAYOUT_PATTERN_GRID_4_M
+  dpi                分辨率 480P, 540P, 720P (默认),1080P
+  frame_rate         帧率 15, 20 (默认), 25 帧
+  bitrate            码率 800, 1000 (默认), 1200
+  layout             旁路直播布局 具体见下旁路直播布局设置
+  max_screen_stream  设置屏占比最大的流ID
  */
-- (BOOL)publishAnotherLive:(BOOL)isOpen liveRoomId:(const NSString *)liveRoomId param:(NSDictionary*)param completeBlock:(void(^)(NSError *error)) block;
-
+- (void)setMixLayoutMode:(int)layoutMode mode:(NSString*_Nullable)mode finish:(VhallFinishBlock _Nullable)finish;
 /**
  *  获得当前SDK版本号
  */
@@ -239,8 +233,10 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
  */
 - (void)switchDualStream:(NSString *)streamId type:(int)type finish:(void(^)(int code, NSString * _Nullable message))finish;
 
-//强制用户离开(下线)互动房间
-+ (BOOL)forceLeaveRoomWithInavId:(const NSString *)inavId
+/*
+* 强制用户离开(下线)互动房间
+*/
+- (BOOL)forceLeaveRoomWithInavId:(const NSString *)inavId
                       kickUserId:(const NSString *)kick_user_id
                      accessToken:(const NSString *)accessToken
                onRequestFinished:(void(^)(id data))success
@@ -307,6 +303,10 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
  * reason  "主动下麦" "被动下麦"
  */
 - (void)room:(VHInteractiveRoom *)room didUnpublish:(NSString *)reason;
+/*
+ * 强制用户下线的消息
+ */
+- (void)room:(VHInteractiveRoom *)room force_leave_inav:(NSString *)third_user_id;
 
 /**
  @brief 流音视频开启情况

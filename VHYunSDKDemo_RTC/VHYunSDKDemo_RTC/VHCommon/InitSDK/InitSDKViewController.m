@@ -29,6 +29,10 @@
     
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [self.view viewWithTag:10099].top = _userIDTextField.bottom-2;
+}
 /*
 #pragma mark - Navigation
 
@@ -51,6 +55,7 @@
     _nicknameTextField.text = DEMO_Setting.nickName;
     _avatarTextField.text = DEMO_Setting.avatar;
     _bundleIDLabel.text = [NSBundle mainBundle].bundleIdentifier;
+
 }
 
 - (IBAction)nextBtnClicked:(id)sender {
@@ -97,4 +102,5 @@
     [textField resignFirstResponder];
     return YES;
 }
+
 @end

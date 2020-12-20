@@ -148,4 +148,11 @@
 {
     [self updateUserListData];
 }
+/*
+ * 强制用户下线的消息
+ */
+- (void)room:(VHInteractiveRoom *)room force_leave_inav:(NSString *)third_user_id
+{
+    
+}
 @end

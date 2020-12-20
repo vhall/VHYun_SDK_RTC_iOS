@@ -31,7 +31,7 @@
 //邀请
 - (BOOL)invitePublishWithThirdUserId:(const NSString *_Nonnull)third_user_id;
 //旁路开关
-- (BOOL)publishAnotherLive:(BOOL)isOpen liveRoomId:(const NSString *_Nonnull)liveRoomId completeBlock:(void(^)(NSError *error)) block;
+- (BOOL)publishAnotherLive:(BOOL)isOpen config:(NSDictionary *)config completeBlock:(void(^)(NSError *error)) block;
 //是否同意上麦请求
 - (BOOL)acceptPublishRequest:(BOOL)isAccept thirdUserId:(const NSString *_Nonnull)third_user_id;
 

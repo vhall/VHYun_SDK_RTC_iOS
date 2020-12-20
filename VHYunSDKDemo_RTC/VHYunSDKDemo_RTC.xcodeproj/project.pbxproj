@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C03276E72302975E0006939E /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; };
+		C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C03276E92302975E0006939E /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; };
+		C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0B8792822E6F31300054CA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792722E6F31300054CA8 /* AppDelegate.m */; };
 		C0B8792B22E6F31300054CA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792A22E6F31300054CA8 /* ViewController.m */; };
 		C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8792C22E6F31300054CA8 /* Main.storyboard */; };
@@ -45,6 +49,8 @@
 		C0C00B0A2397AD0800DB0DA5 /* VHOTOCallViewController+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B092397AD0800DB0DA5 /* VHOTOCallViewController+Call.m */; };
 		C0C00B0D2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */; };
 		C0C00B112397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */; };
+		C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; };
+		C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -54,6 +60,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */,
+				C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */,
+				C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +71,9 @@
 
 /* Begin PBXFileReference section */
 		C017BA8722F28E3000A103EC /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
+		C03276E02302975A0006939E /* VHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHCore.framework; sourceTree = "<group>"; };
+		C03276E12302975A0006939E /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
+		C046AEC72362E28F0095E61E /* VHRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHRTC.framework; sourceTree = "<group>"; };
 		C0B8792322E6F31300054CA8 /* VHYunSDKDemo_RTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHYunSDKDemo_RTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B8792622E6F31300054CA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B8792722E6F31300054CA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,12 +153,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03276E72302975E0006939E /* VHCore.framework in Frameworks */,
+				C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */,
+				C03276E92302975E0006939E /* WebRTC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C03276DE2302975A0006939E /* VHYunFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C046AEC72362E28F0095E61E /* VHRTC.framework */,
+				C03276E02302975A0006939E /* VHCore.framework */,
+				C03276E12302975A0006939E /* WebRTC.framework */,
+			);
+			name = VHYunFrameworks;
+			path = ../../VHYunFrameworks;
+			sourceTree = "<group>";
+		};
 		C0B8791A22E6F31200054CA8 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +192,7 @@
 		C0B8792522E6F31300054CA8 /* VHYunSDKDemo_RTC */ = {
 			isa = PBXGroup;
 			children = (
+				C03276DE2302975A0006939E /* VHYunFrameworks */,
 				C017BA8722F28E3000A103EC /* CONSTS.h */,
 				C0B8792622E6F31300054CA8 /* AppDelegate.h */,
 				C0B8792722E6F31300054CA8 /* AppDelegate.m */,
@@ -210,9 +237,9 @@
 		C0B8795122E6F3C900054CA8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				C0B8795822E6F3C900054CA8 /* VHStatisticsStystem.h */,
 				C0B8795222E6F3C900054CA8 /* VHStatisticsStystem.m */,
 				C0B8795322E6F3C900054CA8 /* XIBUtils */,
-				C0B8795822E6F3C900054CA8 /* VHStatisticsStystem.h */,
 				C0B8795922E6F3C900054CA8 /* View */,
 				C0B8796022E6F3C900054CA8 /* MBProgressHUD */,
 			);
@@ -223,9 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				C0B8795422E6F3C900054CA8 /* ITTXibView.h */,
-				C0B8795522E6F3C900054CA8 /* ITTXibViewUtils.m */,
 				C0B8795622E6F3C900054CA8 /* ITTXibView.m */,
 				C0B8795722E6F3C900054CA8 /* ITTXibViewUtils.h */,
+				C0B8795522E6F3C900054CA8 /* ITTXibViewUtils.m */,
 			);
 			path = XIBUtils;
 			sourceTree = "<group>";
@@ -233,11 +260,11 @@
 		C0B8795922E6F3C900054CA8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C0B8795D22E6F3C900054CA8 /* CALayer+XibConfiguration.h */,
 				C0B8795A22E6F3C900054CA8 /* CALayer+XibConfiguration.m */,
+				C0B8795E22E6F3C900054CA8 /* UIAlertView+ITTAdditions.h */,
 				C0B8795B22E6F3C900054CA8 /* UIAlertView+ITTAdditions.m */,
 				C0B8795C22E6F3C900054CA8 /* UIView+ITTAdditions.h */,
-				C0B8795D22E6F3C900054CA8 /* CALayer+XibConfiguration.h */,
-				C0B8795E22E6F3C900054CA8 /* UIAlertView+ITTAdditions.h */,
 				C0B8795F22E6F3C900054CA8 /* UIView+ITTAdditions.m */,
 			);
 			path = View;
@@ -246,9 +273,9 @@
 		C0B8796022E6F3C900054CA8 /* MBProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				C0B8796122E6F3C900054CA8 /* MBHUDHelper.h */,
-				C0B8796222E6F3C900054CA8 /* MBProgressHUD.m */,
 				C0B8796322E6F3C900054CA8 /* MBProgressHUD.h */,
+				C0B8796222E6F3C900054CA8 /* MBProgressHUD.m */,
+				C0B8796122E6F3C900054CA8 /* MBHUDHelper.h */,
 				C0B8796422E6F3C900054CA8 /* MBHUDHelper.m */,
 			);
 			path = MBProgressHUD;
@@ -440,7 +467,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\nif [[ $APP_PATH != *ArchiveIntermediates* ]]; then\n    exit 0\nfi\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -627,13 +654,14 @@
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
 				INFOPLIST_FILE = VHYunSDKDemo_RTC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -650,13 +678,14 @@
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
 				INFOPLIST_FILE = VHYunSDKDemo_RTC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.1.3;
+				MARKETING_VERSION = 2.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

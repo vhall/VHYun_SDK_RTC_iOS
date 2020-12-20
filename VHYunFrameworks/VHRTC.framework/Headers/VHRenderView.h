@@ -234,12 +234,6 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 - (AVCaptureDevicePosition) switchCamera;
 
 /*
- * 配置旁路混流主屏
- * mode 默认传 nil
- */
-- (void)setMixLayoutMainScreen:(NSString*_Nullable)mode finish:(void(^)(int code, NSString * _Nullable message))finish;
-
-/*
  * 获取流状态
  * 注意：如果开启了流状态监听，必须调用stopStats 停止监听，否则无法释放造成内存泄漏
  */
@@ -255,6 +249,19 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
  * 停止流状态监听
  */
 - (void) stopStats;
+/**
+ @brief 切换大小流
+ @param streamId 他人视频 streamId
+ @param type 0 是小流 1是大流
+ @param finish code 200 成功 message具体信息
+ */
+- (void)switchDualType:(int)type finish:(void(^)(int code, NSString * _Nullable message))finish;
+
+/*
+ * 配置旁路混流主屏
+ * mode 默认传 nil
+ */
+- (void)setMixLayoutMainScreen:(NSString*_Nullable)mode finish:(FinishBlock _Nullable)finish;
 
 /**
  *  当前设备支持的分辨率列表 移动端不建议设置480*360分辨率以上推流

@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *unpublishButton;
 @property (weak, nonatomic) IBOutlet UILabel  *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *beautyBtn;
+@property (weak, nonatomic) IBOutlet UIButton *audioBtn;
 
 @end
 
@@ -56,11 +57,15 @@
 }
 //推流or停止推流
 - (IBAction)unpublish:(UIButton*)sender {
+    
+    self.audioBtn.selected = ![self.cameraView hasAudio];
+    [self muteMyAudio:![self.cameraView hasAudio]];
+
     if (!self.unpublishButton.selected) {
-      [self startLocalCamera];
-      [self publish];
+        [self startLocalCamera];
+        [self publish];
     } else {
-      [self unPublish];
+        [self unPublish];
     }
 }
 //停止推送本地视频画面
@@ -97,7 +102,8 @@
     if(self.anotherLiveRoomId.length>0)
     {
         __weak typeof(self) wf = self;
-        [self publishAnotherLive:!sender.selected liveRoomId:self.anotherLiveRoomId completeBlock:^(NSError *error) {
+        NSDictionary * config = [self.room baseConfigRoomBroadCast:4 layout:4];
+        [self publishAnotherLive:!sender.selected config:config completeBlock:^(NSError *error) {
             if(!error)
             {
                 sender.selected = !sender.selected;

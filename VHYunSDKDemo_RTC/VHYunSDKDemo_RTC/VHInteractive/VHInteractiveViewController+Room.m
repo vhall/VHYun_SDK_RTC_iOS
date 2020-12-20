@@ -27,7 +27,7 @@
 - (void)enterRoom
 {
     [self createRoom];
-    [self.room enterRoomWithRoomId:self.ilssRoomID accessToken:self.accessToken userData:self.userData];
+    [self.room enterRoomWithRoomId:self.ilssRoomID broadCastId:self.anotherLiveRoomId accessToken:self.accessToken userData:self.userData];
 }
 
 - (void)leaveRoom
@@ -85,9 +85,9 @@
 {
     return [self.room invitePublishWithThirdUserId:third_user_id];
 }
-- (BOOL)publishAnotherLive:(BOOL)isOpen liveRoomId:(const NSString *_Nonnull)liveRoomId completeBlock:(void(^)(NSError *error)) block
+- (BOOL)publishAnotherLive:(BOOL)isOpen config:(NSDictionary *)config completeBlock:(void(^)(NSError *error)) block
 {
-    return [self.room publishAnotherLive:isOpen liveRoomId:liveRoomId completeBlock:block];
+    return [self.room publishAnotherLive:isOpen param:config completeBlock:block];
 }
 //是否同意上麦请求
 - (BOOL)acceptPublishRequest:(BOOL)isAccept thirdUserId:(const NSString *_Nonnull)third_user_id
@@ -212,6 +212,16 @@
 
 #pragma mark - VHInteractiveRoomDelegate
 - (void)room:(VHInteractiveRoom *)room error:(NSError*)error {
+    if (room.status == VHInteractiveRoomStatusReady) {
+        if (error.code == 30009) { //当前用户已连接
+            [room forceLeaveRoomWithInavId:DEMO_Setting.ilssRoomID kickUserId:DEMO_Setting.third_party_user_id accessToken:DEMO_Setting.accessToken onRequestFinished:^(id  _Nonnull data) {
+                [self showDisConectAlertWithStatusMessage:@"强制离开房间"];
+            } onRequestFailed:^(NSError * _Nonnull error) {
+                
+            }];
+            [self showDisConectAlertWithStatusMessage:@"当前用户已连接"];
+        }
+    }
     if(room.status == VHInteractiveRoomStatusError)
     {
         [self.infoDict removeAllObjects];
