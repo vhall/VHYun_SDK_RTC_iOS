@@ -11,6 +11,8 @@
 #import "VHOTOCallViewController+TableView.h"
 #import <VHCore/VHMessage.h>
 
+#define DEMO_Setting [VHStystemSetting sharedSetting]
+
 @implementation VHOTOCallViewController (Call)
 - (NSDictionary*)renderViewsById
 {
@@ -30,7 +32,8 @@
 - (void)enterRoom
 {
     [self createRoom];
-    [self.otoCall enterRoomWithRoomId:self.ilssRoomID accessToken:self.accessToken userData:nil];
+    [self.otoCall enterRoomWithRoomId:self.ilssRoomID broadCastId:self.anotherLiveRoomId accessToken:self.accessToken userData:@""];
+
 }
 
 - (BOOL)OTOCall:(const NSString *)third_user_id
@@ -111,11 +114,8 @@
  */
 - (void)room:(VHInteractiveRoom *)room didRemovedAttendView:(VHRenderView *)attendView
 {
-    if( [self.otoCall.cur_third_user_id isEqualToString:attendView.userId])
-    {
-        [self removeView:attendView];
-        [self callStop];
-    }
+    [self removeView:attendView];
+    [self callStop];
 }
 
 #pragma mark - 以下回调可不实现
@@ -124,7 +124,16 @@
  */
 - (void)room:(VHInteractiveRoom *)room error:(NSError*)error
 {
-    
+    if (room.status == VHInteractiveRoomStatusReady) {
+        if (error.code == 30009) { //当前用户已连接
+            [room forceLeaveRoomWithInavId:self.ilssRoomID kickUserId:self.otoCall.cur_third_user_id accessToken:self.accessToken onRequestFinished:^(id  _Nonnull data) {
+                [self showDisConectAlertWithStatusMessage:@"强制离开房间"];
+            } onRequestFailed:^(NSError * _Nonnull error) {
+                
+            }];
+            [self showDisConectAlertWithStatusMessage:@"当前用户已连接"];
+        }
+    }
 }
 /*
  * 房间状态变化
@@ -152,6 +161,20 @@
  * 强制用户下线的消息
  */
 - (void)room:(VHInteractiveRoom *)room force_leave_inav:(NSString *)third_user_id
+{
+    
+}
+/*
+* 推流成功
+*/
+- (void)room:(VHInteractiveRoom *)room didPublish:(VHRenderView *)cameraView
+{
+    
+}
+/*
+* 停止推流
+*/
+- (void)room:(VHInteractiveRoom *)room didUnpublish:(NSString *)reason
 {
     
 }

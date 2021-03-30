@@ -1,0 +1,6 @@
+framework module VHScreenShare {
+  umbrella header "VHScreenShare.h"
+
+  export *
+  module * { export * }
+}

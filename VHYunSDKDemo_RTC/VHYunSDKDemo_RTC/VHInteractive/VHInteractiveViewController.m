@@ -102,7 +102,7 @@
     if(self.anotherLiveRoomId.length>0)
     {
         __weak typeof(self) wf = self;
-        NSDictionary * config = [self.room baseConfigRoomBroadCast:4 layout:4];
+        NSDictionary * config = [self.room baseConfigRoomBroadCast:12 layout:8];
         [self publishAnotherLive:!sender.selected config:config completeBlock:^(NSError *error) {
             if(!error)
             {

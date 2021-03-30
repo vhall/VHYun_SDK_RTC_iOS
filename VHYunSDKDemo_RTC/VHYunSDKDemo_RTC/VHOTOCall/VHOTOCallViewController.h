@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface VHOTOCallViewController : VHBaseViewController
 @property(nonatomic,copy) NSString * ilssRoomID;        //互动房间id
+@property(nonatomic,copy) NSString * anotherLiveRoomId; //旁路直播间ID
 @property(nonatomic,copy) NSString * accessToken;
 
 
@@ -39,6 +40,9 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)callAccepted;//对方已接受呼叫
 - (void)callRefuse;//拒绝呼叫
 - (void)callStop;//挂断
+
+//断开与房间的连接弹窗
+- (void)showDisConectAlertWithStatusMessage:(NSString *)msg;
 
 @end
 

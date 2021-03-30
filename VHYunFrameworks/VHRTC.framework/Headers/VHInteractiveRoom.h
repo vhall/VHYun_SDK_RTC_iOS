@@ -112,6 +112,20 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 */
 
 - (void)enterRoomWithRoomId:(const NSString *)inav_id broadCastId:(const NSString *)broadCastId accessToken:(const NSString *)accessToken userData:(NSString*)userData;
+/*
+* 加入房间
+* @param inav_id 互动房间id
+* @param broadCastId 旁路房间id
+* @param accessToken  accessToken
+* @param userData  用户数据可以携带不超过255字符的字符串 可在VHRenderView中获取此值
+* @param isScreenShare  是否录屏互动
+* 调用完成等待代理回调确认接下来操作
+*/
+- (void)enterRoomWithRoomId:(const NSString *)inav_id
+                broadCastId:(const NSString *)broadCastId
+                accessToken:(const NSString *)accessToken
+                   userData:(NSString*)userData
+                screenShare:(BOOL )isScreenShare;
 
 /*
  * 离开房间
@@ -128,7 +142,7 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 #pragma mark - 上下麦操作
 /*
  * 上麦推流
- * @param camera 本地摄像头view
+ * @param camera 本地摄像头view 也可以是录屏view 尝试推录屏流 需要同步启动 系统录屏界面触发正式推流
  */
 - (BOOL)publishWithCameraView:(VHRenderView*) cameraView;
 
@@ -193,7 +207,7 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 - (BOOL)kickoutUserList:(void(^)(NSArray* userList,NSError* error)) block;
 #pragma mark - 旁路操作
 /*
- * 开启/关闭旁路直播
+ * 开启/关闭旁路直播 (使用该方法前提:加入房间初始化方法使用enterRoomWithRoomId:broadCastId:accessToken:userData:)
  * @param isOpen Yes开启旁路直播   NO关闭旁路直播
  * prarm [self baseConfigRoomBroadCast:4 layout:4]; 调用此函数配置视频质量参数和旁路布局
  * 设置成功后会自动推旁路
@@ -206,13 +220,9 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 */
 - (NSDictionary*)baseConfigRoomBroadCast:(BroadcastDefinition)definition layout:(BroadcastLayout)layout;
 /*
- * 配置旁路混流布局 VHConstantDef.h CANVAS_LAYOUT
- * layoutMode CANVAS_LAYOUT_PATTERN_GRID_4_M
-  dpi                分辨率 480P, 540P, 720P (默认),1080P
-  frame_rate         帧率 15, 20 (默认), 25 帧
-  bitrate            码率 800, 1000 (默认), 1200
-  layout             旁路直播布局 具体见下旁路直播布局设置
-  max_screen_stream  设置屏占比最大的流ID
+ * 修改旁路混流布局
+ * layoutMode VHBroadCastDef.h ==> BroadcastLayout
+ * mode 默认nil
  */
 - (void)setMixLayoutMode:(int)layoutMode mode:(NSString*_Nullable)mode finish:(VhallFinishBlock _Nullable)finish;
 /**
@@ -292,6 +302,8 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
  * status 0 人员变化 1 上麦 2 下麦 3拒绝上麦
  * third_party_user_id 操作人id
  * online 在线人数
+ * nick_name 昵称
+ * avatar 头像
  */
 - (void)room:(VHInteractiveRoom *)room  userChangeInfo:(NSDictionary*)info;
 /*

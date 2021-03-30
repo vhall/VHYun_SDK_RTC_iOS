@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *videoBtn;
 @property (weak, nonatomic) IBOutlet UIButton *audioBtn;
+@property (weak, nonatomic) IBOutlet UIButton *bypassBtn;
 
 @end
 
@@ -32,6 +33,23 @@
 - (void)viewWillDisappear:(BOOL)animated{
    [super viewWillDisappear:animated];
    [[UIApplication sharedApplication] setIdleTimerDisabled:NO];
+}
+- (void)showDisConectAlertWithStatusMessage:(NSString *)msg
+{
+    __weak __typeof(self)weakSelf = self;
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:nil message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        [weakSelf callStop];
+        //离开房间
+        [weakSelf leaveRoom];
+        
+        [weakSelf dismissViewControllerAnimated:YES completion:^{}];
+        [weakSelf.navigationController popViewControllerAnimated:NO];
+    }];
+    [alertController addAction:action];
+    alertController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:alertController animated:YES completion:nil];
 }
 
 /*
@@ -152,6 +170,29 @@
     [self.cameraView switchCamera];
 }
 
+- (IBAction)publishAnotherLiveBtn:(UIButton *)sender {
+    
+    if(self.anotherLiveRoomId.length>0)
+    {
+        __weak typeof(self) wf = self;
+        NSDictionary * config = [self.otoCall baseConfigRoomBroadCast:4 layout:4];
+        [self.otoCall publishAnotherLive:!sender.selected param:config completeBlock:^(NSError * _Nonnull error) {
+            if(!error){
+                sender.selected = !sender.selected;
+                [wf showMsg:sender.selected?@"已开启旁路":@"已关闭旁路" afterDelay:2];
+            }else{
+                if(error.code == 40008)//旁路推流正在进行中，请先结束
+                {
+                    sender.selected = !sender.selected;
+                }
+                [wf showMsg:error.domain afterDelay:1];
+            }
+        }];
+    }
+    else
+        [self showMsg:@"旁路直播房间ID为空" afterDelay:2];
+
+}
 
 #pragma mark - get
 - (VHLayoutView*)layoutView

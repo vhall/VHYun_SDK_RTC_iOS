@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="acceptBtn" destination="u6b-cH-1lP" id="olb-yY-eFC"/>
                 <outlet property="audioBtn" destination="9gf-TS-qkS" id="P2Z-bs-pgI"/>
+                <outlet property="bypassBtn" destination="r0p-Wm-8ld" id="hoD-x7-UsE"/>
                 <outlet property="callView" destination="aZt-i7-yAb" id="CS3-Mg-1iT"/>
                 <outlet property="callingLabel" destination="WhD-kI-UDZ" id="hHJ-jo-yK3"/>
                 <outlet property="containerView" destination="x37-yZ-nhr" id="pS7-b2-nUz"/>
@@ -161,6 +162,20 @@
                         <action selector="closeBtnClicked:" destination="-1" eventType="touchUpInside" id="NUM-0a-Ju5"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r0p-Wm-8ld">
+                    <rect key="frame" x="299" y="47" width="100" height="36"/>
+                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="3Fn-nT-EQM"/>
+                        <constraint firstAttribute="width" constant="100" id="G7g-em-c4R"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="开启旁路"/>
+                    <state key="selected" title="关闭旁路"/>
+                    <connections>
+                        <action selector="publishAnotherLiveBtn:" destination="-1" eventType="touchUpInside" id="TIr-eE-nsj"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -171,17 +186,25 @@
                 <constraint firstItem="m1J-vT-C9a" firstAttribute="top" secondItem="P8w-Ry-6gY" secondAttribute="bottom" constant="18" id="HfN-9t-rh8"/>
                 <constraint firstAttribute="bottom" secondItem="aZt-i7-yAb" secondAttribute="bottom" id="JEu-ES-j20"/>
                 <constraint firstItem="x37-yZ-nhr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ReV-tP-xCG"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="r0p-Wm-8ld" secondAttribute="trailing" constant="15" id="TAK-OQ-y03"/>
                 <constraint firstAttribute="bottom" secondItem="x37-yZ-nhr" secondAttribute="bottom" id="Val-ys-IeB"/>
                 <constraint firstItem="m1J-vT-C9a" firstAttribute="trailing" secondItem="Q5M-cg-NOt" secondAttribute="trailing" constant="-10" id="WAK-XU-9HV"/>
                 <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="m1J-vT-C9a" secondAttribute="bottom" id="Yar-Ev-5FV"/>
                 <constraint firstAttribute="trailing" secondItem="aZt-i7-yAb" secondAttribute="trailing" id="ZtV-sM-Nmg"/>
                 <constraint firstItem="m1J-vT-C9a" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" constant="10" id="cgO-56-rum"/>
                 <constraint firstItem="P8w-Ry-6gY" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="3" id="iaO-Qx-uNq"/>
+                <constraint firstItem="r0p-Wm-8ld" firstAttribute="centerY" secondItem="P8w-Ry-6gY" secondAttribute="centerY" id="ju0-Tu-JqT"/>
                 <constraint firstItem="aZt-i7-yAb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rC4-gn-JZB"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
-            <point key="canvasLocation" x="-271.01449275362319" y="124.55357142857142"/>
+            <point key="canvasLocation" x="-359" y="38"/>
         </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="K4e-3r-LLd">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="590" y="-170"/>
+        </button>
     </objects>
     <resources>
         <image name="camera_off" width="35" height="35"/>

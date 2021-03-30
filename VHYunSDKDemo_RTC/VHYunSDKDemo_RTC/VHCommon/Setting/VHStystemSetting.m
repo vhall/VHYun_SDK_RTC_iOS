@@ -9,6 +9,7 @@
 
 #import "VHStystemSetting.h"
 #import <objc/message.h>
+#import <sys/utsname.h>
 
 @implementation VHStystemSetting
 
@@ -98,8 +99,14 @@ static VHStystemSetting *pub_sharedSetting = nil;
             _appID = DEMO_AppID;
         
         if(_third_party_user_id == nil)
-//            _third_party_user_id = @"third_party_user_id";
-            _third_party_user_id = [[UIDevice currentDevice] name]; 
+        {
+            struct utsname systemInfo;
+            uname(&systemInfo);
+            NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+            platform= [platform stringByReplacingOccurrencesOfString:@"," withString:@"_"];
+
+            _third_party_user_id = [NSString stringWithFormat:@"%@_%d",platform,(arc4random()%1000000)];
+        }
         
         if(_accessToken.length == 0)
             _accessToken       = DEMO_AccessToken;

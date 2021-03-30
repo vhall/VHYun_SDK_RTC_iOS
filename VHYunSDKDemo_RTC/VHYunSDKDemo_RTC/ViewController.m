@@ -11,6 +11,7 @@
 #import <VHRTC/VHInteractiveRoom.h>
 #import "VHInteractiveViewController.h"
 #import "VHOTOCallViewController.h"
+#import "ScreenShareViewController.h"
 
 #import <AVFoundation/AVFoundation.h>
 
@@ -72,6 +73,30 @@
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
+- (void)screenShareBtnClicked:(UIButton*)btn
+{
+    if(![self isCaptureDeviceOK])
+        return;
+    
+    if(_businessIDTextField.text.length == 0 || _accessTokenTextField.text.length == 0)
+    {
+        [self showMsg:@"参数不能为空" afterDelay:1.5];
+        return;
+    }
+
+    DEMO_Setting.ilssRoomID     = _businessIDTextField.text;
+    DEMO_Setting.ilssLiveRoomID = _roomIDTextField.text;
+    DEMO_Setting.accessToken    = _accessTokenTextField.text;
+
+    ScreenShareViewController * vc = [[ScreenShareViewController alloc] init];
+    vc.ilssRoomID       = DEMO_Setting.ilssRoomID;
+    vc.accessToken      = DEMO_Setting.accessToken;
+    vc.anotherLiveRoomId= DEMO_Setting.ilssLiveRoomID;
+    vc.extensionBundleID=@"com.vhallyun.rtc.VHScreenShare";
+    //    vc.anotherLiveRoomID= DEMO_Setting.anotherLiveRoomID;
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
+}
 
 - (void)callBtnClicked:(UIButton*)btn
 {
@@ -90,6 +115,7 @@
 
     VHOTOCallViewController * vc = [[VHOTOCallViewController alloc] init];
     vc.ilssRoomID       = DEMO_Setting.ilssRoomID;
+    vc.anotherLiveRoomId= DEMO_Setting.ilssLiveRoomID;
     vc.accessToken      = DEMO_Setting.accessToken;
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
@@ -137,7 +163,13 @@
     [callBtn addTarget:self action:@selector(callBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     callBtn.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:callBtn];
-
+    
+    UIButton *screenShareBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, callBtn.bottom+10, accessTokenTextField.width, accessTokenTextField.height)];
+    [screenShareBtn setTitle:@"录屏互动" forState:UIControlStateNormal];
+    [screenShareBtn addTarget:self action:@selector(screenShareBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    screenShareBtn.backgroundColor = [UIColor lightGrayColor];
+    [self.view addSubview:screenShareBtn];
+    
     UILabel * label= [[UILabel alloc] initWithFrame:CGRectMake(0, VHScreenHeight - 100, VHScreenWidth, 20)];
     label.font = [UIFont systemFontOfSize:12];
     label.textAlignment = NSTextAlignmentCenter;

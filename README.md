@@ -6,8 +6,6 @@
 ### SDK 两种引入方式
 1、pod 'VHYun_RTC'<br>
   请检查Frameworks路径是否正确配置 <br>
-   "${PODS_ROOT}/VHCore/VHYunFrameworks" <br>
-   "${PODS_ROOT}/VHYun_RTC/VHYunFrameworks"<br>
 2、手动下载拖入工程设置路径、Embed&Sign<br>
 注意依赖 https://github.com/vhall/VHYun_SDK_Core_iOS.git VHCore库<br>
 
@@ -21,6 +19,12 @@
 
 
 ### 版本更新信息
+#### 版本 v2.3.0 更新时间：2021.03.26
+更新内容：<br>
+1、支持竖屏旁路<br>
+2、Render可以直接切换大小流<br>
+
+
 #### 版本 v2.2.0 更新时间：2020.07.27
 更新内容：<br>
 1、优化开启旁路流程<br>

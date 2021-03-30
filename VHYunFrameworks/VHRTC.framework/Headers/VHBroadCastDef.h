@@ -23,20 +23,37 @@
     @{@"resolution":@[@1280,@960],@"framerate":@25,@"bitrate":@1600},\
     @{@"resolution":@[@1712,@960],@"framerate":@25,@"bitrate":@1900},\
     @{@"resolution":@[@1440,@1080],@"framerate":@25,@"bitrate":@1800},\
-    @{@"resolution":@[@1920,@1080],@"framerate":@25,@"bitrate":@2200}]
+    @{@"resolution":@[@1920,@1080],@"framerate":@25,@"bitrate":@2200},\
+\
+    @{@"resolution":@[@480,@848],@"framerate":@25,@"bitrate":@750},\
+    @{@"resolution":@[@540,@960],@"framerate":@25,@"bitrate":@1150},\
+    @{@"resolution":@[@720,@1280],@"framerate":@25,@"bitrate":@1600},\
+    @{@"resolution":@[@1080,@1920],@"framerate":@25,@"bitrate":@2200}]
 
 /// 注释代表当前枚举选项的 宽高比 分辨率（宽x高）帧率 码率 (kbps)
 typedef NS_ENUM(NSInteger,  BroadcastDefinition) {
-    BROADCAST_VIDEO_PROFILE_480P_0   = 0,//    4:3    640x480    25    600
-    BROADCAST_VIDEO_PROFILE_480P_1   = 1,//    16:9    852x480    25    725
+    BROADCAST_VIDEO_PROFILE_480P_0   = 0,//    4:3    640x480    25    700
+    BROADCAST_VIDEO_PROFILE_480P_1   = 1,//    16:9    852x480    25    750
     BROADCAST_VIDEO_PROFILE_540P_0   = 2,//
     BROADCAST_VIDEO_PROFILE_540P_1   = 3,//
-    BROADCAST_VIDEO_PROFILE_720P_0   = 4,//    4:3    960x720    25    1050
-    BROADCAST_VIDEO_PROFILE_720P_1   = 5,//    16:9    1280X720    25    1100
-    BROADCAST_VIDEO_PROFILE_960P_0   = 6,//    4:3    1280x960    25    1300
+    BROADCAST_VIDEO_PROFILE_720P_0   = 4,//    4:3    960x720    25    1400
+    BROADCAST_VIDEO_PROFILE_720P_1   = 5,//    16:9    1280X720    25    1600
+    BROADCAST_VIDEO_PROFILE_960P_0   = 6,//    4:3    1280x960    25    1600
     BROADCAST_VIDEO_PROFILE_960P_1   = 7,//
-    BROADCAST_VIDEO_PROFILE_1080P_0  = 8,//    4:3    1440X1080    25    1350
-    BROADCAST_VIDEO_PROFILE_1080P_1  = 9,//    16:9    1920X1080    25    1600
+    BROADCAST_VIDEO_PROFILE_1080P_0  = 8,//    4:3    1440X1080    25    1800
+    BROADCAST_VIDEO_PROFILE_1080P_1  = 9,//    16:9    1920X1080    25    2200
+    
+    /*以下新增竖版旁路，（注意当使用竖版分辨率时，仅支持部分布局模板，含：
+     CANVAS_LAYOUT_PATTERN_FLOAT_2_1DR 8
+     CANVAS_LAYOUT_PATTERN_FLOAT_2_1DL 9
+     CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TR 30
+     CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TL 31
+     ）*/
+    BROADCAST_VIDEO_PROFILE_480P_1_VERTICAL = 10,//9:16   480x852   25    750
+    BROADCAST_VIDEO_PROFILE_540P_1_VERTICAL = 11,//9:16   540x960   25    1150
+    BROADCAST_VIDEO_PROFILE_720P_1_VERTICAL = 12,//9:16   720x1280   25    1600
+    BROADCAST_VIDEO_PROFILE_1080P_1_VERTICAL = 13,//9:16   1080x1920   25    2200
+
     BROADCAST_VIDEO_PROFILE_COUNT
 };
 
@@ -73,6 +90,8 @@ typedef NS_ENUM(NSInteger, BroadcastLayout) {
     CANVAS_LAYOUT_PATTERN_CUSTOM                 = 27,//    自定义，当使用坐标布局接口时，请使用此
     CANVAS_LAYOUT_EX_PATTERN_GRID_12_E           = 28,//    3行4列等分布局
     CANVAS_LAYOUT_EX_PATTERN_GRID_16_E           = 29,//    4行4列等分布局
+    CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TR         = 30,// 主次悬浮，大屏铺满，小屏悬浮右上角 (小窗宽=画布宽度/5，比例为4:3)支持竖版布局，参考PaaS需求： paas pm
+    CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TL         = 31,// 主次悬浮，大屏铺满，小屏悬浮左上角 (小窗宽=画布宽度/5，比例为4:3)支持竖版布局，参考PaaS需求： paas pm
     CANVAS_LAYOUT_PATTERN__COUNT//
 };
 

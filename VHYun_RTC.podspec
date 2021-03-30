@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_RTC"
-  s.version         = "2.2.0"
+  s.version         = "2.3.0"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
@@ -16,7 +16,8 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'VHYunFrameworks/*.framework'
   s.pod_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
-    'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**'
+    'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
+    'VALID_ARCHS' => 'x86_64 armv7 arm64',
   }
 
   s.dependency 'VHCore','>=2.0.3'

@@ -3,14 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C03276E72302975E0006939E /* VHCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; };
-		C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E02302975A0006939E /* VHCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C03276E92302975E0006939E /* WebRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; };
-		C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C03276E12302975A0006939E /* WebRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C0B8792822E6F31300054CA8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792722E6F31300054CA8 /* AppDelegate.m */; };
 		C0B8792B22E6F31300054CA8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0B8792A22E6F31300054CA8 /* ViewController.m */; };
 		C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0B8792C22E6F31300054CA8 /* Main.storyboard */; };
@@ -49,9 +45,25 @@
 		C0C00B0A2397AD0800DB0DA5 /* VHOTOCallViewController+Call.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B092397AD0800DB0DA5 /* VHOTOCallViewController+Call.m */; };
 		C0C00B0D2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */; };
 		C0C00B112397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */; };
-		C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; };
-		C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C046AEC72362E28F0095E61E /* VHRTC.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C0EF334925C1990B000004D4 /* ReplayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0EF334825C1990B000004D4 /* ReplayKit.framework */; };
+		C0EF334D25C1990B000004D4 /* SampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EF334C25C1990B000004D4 /* SampleHandler.m */; };
+		C0EF335125C1990B000004D4 /* VHScreenShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = C0EF334625C1990B000004D4 /* VHScreenShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		C0EF336025C19D39000004D4 /* ScreenShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C0EF335D25C19D39000004D4 /* ScreenShareViewController.xib */; };
+		C0EF336125C19D39000004D4 /* ScreenShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0EF335F25C19D39000004D4 /* ScreenShareViewController.m */; };
+		C0F3F19125C5C791001CD534 /* VHScreenShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0F3F18F25C5C46F001CD534 /* VHScreenShare.framework */; };
+		C0F3F19225C5C791001CD534 /* VHScreenShare.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C0F3F18F25C5C46F001CD534 /* VHScreenShare.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C36BCCED52A07B14B647409A /* libPods-VHYunSDKDemo_RTC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBFDF41922DB0ABA1699371 /* libPods-VHYunSDKDemo_RTC.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C0EF334F25C1990B000004D4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C0B8791B22E6F31200054CA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C0EF334525C1990B000004D4;
+			remoteInfo = VHScreenShare;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		C0B8794922E6F3A100054CA8 /* Embed Frameworks */ = {
@@ -60,9 +72,28 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C03276E82302975E0006939E /* VHCore.framework in Embed Frameworks */,
-				C0C00B132399F39A00DB0DA5 /* VHRTC.framework in Embed Frameworks */,
-				C03276EA2302975E0006939E /* WebRTC.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0EF335225C1990B000004D4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				C0EF335125C1990B000004D4 /* VHScreenShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0F3F19325C5C791001CD534 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C0F3F19225C5C791001CD534 /* VHScreenShare.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,10 +101,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		06A8CBBC1596DE1F2FEAC3A3 /* Pods-VHYunSDKDemo_RTC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_RTC.debug.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC.debug.xcconfig"; sourceTree = "<group>"; };
+		ABBFDF41922DB0ABA1699371 /* libPods-VHYunSDKDemo_RTC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VHYunSDKDemo_RTC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C017BA8722F28E3000A103EC /* CONSTS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CONSTS.h; sourceTree = "<group>"; };
-		C03276E02302975A0006939E /* VHCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHCore.framework; sourceTree = "<group>"; };
-		C03276E12302975A0006939E /* WebRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WebRTC.framework; sourceTree = "<group>"; };
-		C046AEC72362E28F0095E61E /* VHRTC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VHRTC.framework; sourceTree = "<group>"; };
 		C0B8792322E6F31300054CA8 /* VHYunSDKDemo_RTC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VHYunSDKDemo_RTC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B8792622E6F31300054CA8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C0B8792722E6F31300054CA8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -146,6 +176,16 @@
 		C0C00B0C2397AD4B00DB0DA5 /* VHOTOCallViewController+Layout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VHOTOCallViewController+Layout.m"; sourceTree = "<group>"; };
 		C0C00B0F2397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VHOTOCallViewController+TableView.h"; sourceTree = "<group>"; };
 		C0C00B102397BC6F00DB0DA5 /* VHOTOCallViewController+TableView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VHOTOCallViewController+TableView.m"; sourceTree = "<group>"; };
+		C0EF334625C1990B000004D4 /* VHScreenShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VHScreenShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		C0EF334825C1990B000004D4 /* ReplayKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReplayKit.framework; path = System/Library/Frameworks/ReplayKit.framework; sourceTree = SDKROOT; };
+		C0EF334B25C1990B000004D4 /* SampleHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleHandler.h; sourceTree = "<group>"; };
+		C0EF334C25C1990B000004D4 /* SampleHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleHandler.m; sourceTree = "<group>"; };
+		C0EF334E25C1990B000004D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0EF335D25C19D39000004D4 /* ScreenShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreenShareViewController.xib; sourceTree = "<group>"; };
+		C0EF335E25C19D39000004D4 /* ScreenShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenShareViewController.h; sourceTree = "<group>"; };
+		C0EF335F25C19D39000004D4 /* ScreenShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenShareViewController.m; sourceTree = "<group>"; };
+		C0F3F18F25C5C46F001CD534 /* VHScreenShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VHScreenShare.framework; path = ../../VHYunFrameworks/VHScreenShare.framework; sourceTree = "<group>"; };
+		E9B9910561946645EB8653FA /* Pods-VHYunSDKDemo_RTC.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VHYunSDKDemo_RTC.release.xcconfig"; path = "Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,31 +193,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C03276E72302975E0006939E /* VHCore.framework in Frameworks */,
-				C0C00B122399F39A00DB0DA5 /* VHRTC.framework in Frameworks */,
-				C03276E92302975E0006939E /* WebRTC.framework in Frameworks */,
+				C36BCCED52A07B14B647409A /* libPods-VHYunSDKDemo_RTC.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C0EF334325C1990B000004D4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0F3F19125C5C791001CD534 /* VHScreenShare.framework in Frameworks */,
+				C0EF334925C1990B000004D4 /* ReplayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		C03276DE2302975A0006939E /* VHYunFrameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C046AEC72362E28F0095E61E /* VHRTC.framework */,
-				C03276E02302975A0006939E /* VHCore.framework */,
-				C03276E12302975A0006939E /* WebRTC.framework */,
-			);
-			name = VHYunFrameworks;
-			path = ../../VHYunFrameworks;
-			sourceTree = "<group>";
-		};
 		C0B8791A22E6F31200054CA8 = {
 			isa = PBXGroup;
 			children = (
 				C0B8792522E6F31300054CA8 /* VHYunSDKDemo_RTC */,
+				C0EF334A25C1990B000004D4 /* VHScreenShare */,
+				C0EF334725C1990B000004D4 /* Frameworks */,
 				C0B8792422E6F31300054CA8 /* Products */,
+				E932F8EEA985ECAEB0067705 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -185,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				C0B8792322E6F31300054CA8 /* VHYunSDKDemo_RTC.app */,
+				C0EF334625C1990B000004D4 /* VHScreenShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,7 +232,6 @@
 		C0B8792522E6F31300054CA8 /* VHYunSDKDemo_RTC */ = {
 			isa = PBXGroup;
 			children = (
-				C03276DE2302975A0006939E /* VHYunFrameworks */,
 				C017BA8722F28E3000A103EC /* CONSTS.h */,
 				C0B8792622E6F31300054CA8 /* AppDelegate.h */,
 				C0B8792722E6F31300054CA8 /* AppDelegate.m */,
@@ -314,6 +353,9 @@
 				C0B8798222E6F3F500054CA8 /* VHInteractiveViewController+TableView.m */,
 				C0B8799022E6F3F500054CA8 /* VHInteractiveViewController+Layout.h */,
 				C0B8797D22E6F3F500054CA8 /* VHInteractiveViewController+Layout.m */,
+				C0EF335E25C19D39000004D4 /* ScreenShareViewController.h */,
+				C0EF335F25C19D39000004D4 /* ScreenShareViewController.m */,
+				C0EF335D25C19D39000004D4 /* ScreenShareViewController.xib */,
 			);
 			path = VHInteractive;
 			sourceTree = "<group>";
@@ -381,6 +423,35 @@
 			path = VHOTOCall;
 			sourceTree = "<group>";
 		};
+		C0EF334725C1990B000004D4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C0EF334825C1990B000004D4 /* ReplayKit.framework */,
+				ABBFDF41922DB0ABA1699371 /* libPods-VHYunSDKDemo_RTC.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C0EF334A25C1990B000004D4 /* VHScreenShare */ = {
+			isa = PBXGroup;
+			children = (
+				C0F3F18F25C5C46F001CD534 /* VHScreenShare.framework */,
+				C0EF334B25C1990B000004D4 /* SampleHandler.h */,
+				C0EF334C25C1990B000004D4 /* SampleHandler.m */,
+				C0EF334E25C1990B000004D4 /* Info.plist */,
+			);
+			path = VHScreenShare;
+			sourceTree = "<group>";
+		};
+		E932F8EEA985ECAEB0067705 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				06A8CBBC1596DE1F2FEAC3A3 /* Pods-VHYunSDKDemo_RTC.debug.xcconfig */,
+				E9B9910561946645EB8653FA /* Pods-VHYunSDKDemo_RTC.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -388,20 +459,44 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C0B8793922E6F32600054CA8 /* Build configuration list for PBXNativeTarget "VHYunSDKDemo_RTC" */;
 			buildPhases = (
+				F2F3DEAE8CC3DC515D4B4545 /* [CP] Check Pods Manifest.lock */,
 				C0B8791F22E6F31300054CA8 /* Sources */,
 				C0B8792022E6F31300054CA8 /* Frameworks */,
 				C0B8792122E6F31300054CA8 /* Resources */,
 				C0B8794922E6F3A100054CA8 /* Embed Frameworks */,
 				C0672AF023A219C2002D11C0 /* ShellScript */,
+				C0EF335225C1990B000004D4 /* Embed App Extensions */,
+				94839E4B8F4049A8E3731FE6 /* [CP] Embed Pods Frameworks */,
+				9A1D4750837C5C8DF854C0C1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				C0EF335025C1990B000004D4 /* PBXTargetDependency */,
 			);
 			name = VHYunSDKDemo_RTC;
 			productName = VHYunSDKDemo_RTC;
 			productReference = C0B8792322E6F31300054CA8 /* VHYunSDKDemo_RTC.app */;
 			productType = "com.apple.product-type.application";
+		};
+		C0EF334525C1990B000004D4 /* VHScreenShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C0EF335525C1990B000004D4 /* Build configuration list for PBXNativeTarget "VHScreenShare" */;
+			buildPhases = (
+				C0EF334225C1990B000004D4 /* Sources */,
+				C0EF334325C1990B000004D4 /* Frameworks */,
+				C0EF334425C1990B000004D4 /* Resources */,
+				C0F3F19325C5C791001CD534 /* Embed Frameworks */,
+				C0F3F1E625C5E531001CD534 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VHScreenShare;
+			productName = VHScreenShare;
+			productReference = C0EF334625C1990B000004D4 /* VHScreenShare.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -409,11 +504,15 @@
 		C0B8791B22E6F31200054CA8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				DefaultBuildSystemTypeForWorkspace = Original;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = vhall;
 				TargetAttributes = {
 					C0B8792222E6F31300054CA8 = {
 						CreatedOnToolsVersion = 10.2.1;
+					};
+					C0EF334525C1990B000004D4 = {
+						CreatedOnToolsVersion = 12.3;
 					};
 				};
 			};
@@ -431,6 +530,7 @@
 			projectRoot = "";
 			targets = (
 				C0B8792222E6F31300054CA8 /* VHYunSDKDemo_RTC */,
+				C0EF334525C1990B000004D4 /* VHScreenShare */,
 			);
 		};
 /* End PBXProject section */
@@ -443,15 +543,57 @@
 				C0B8793322E6F32600054CA8 /* LaunchScreen.storyboard in Resources */,
 				C0C00B0723979D0300DB0DA5 /* VHOTOCallViewController.xib in Resources */,
 				C0B8793022E6F32600054CA8 /* Assets.xcassets in Resources */,
+				C0EF336025C19D39000004D4 /* ScreenShareViewController.xib in Resources */,
 				C0B8792E22E6F31300054CA8 /* Main.storyboard in Resources */,
 				C0B8796D22E6F3C900054CA8 /* InitSDKViewController.xib in Resources */,
 				C0B8799522E6F3F500054CA8 /* VHInteractiveViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0EF334425C1990B000004D4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		94839E4B8F4049A8E3731FE6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A1D4750837C5C8DF854C0C1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VHYunSDKDemo_RTC/Pods-VHYunSDKDemo_RTC-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C0672AF023A219C2002D11C0 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -468,6 +610,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\nif [[ $APP_PATH != *ArchiveIntermediates* ]]; then\n    exit 0\nfi\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n\n";
+		};
+		C0F3F1E625C5E531001CD534 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\nif [[ $APP_PATH != *ArchiveIntermediates* ]]; then\n    exit 0\nfi\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone\n";
+		};
+		F2F3DEAE8CC3DC515D4B4545 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VHYunSDKDemo_RTC-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -505,13 +686,30 @@
 				C0B8797022E6F3C900054CA8 /* ITTXibView.m in Sources */,
 				C0B8799322E6F3F500054CA8 /* VHInteractiveViewController+Room.m in Sources */,
 				C0B8797222E6F3C900054CA8 /* UIAlertView+ITTAdditions.m in Sources */,
+				C0EF336125C19D39000004D4 /* ScreenShareViewController.m in Sources */,
 				C0B8799422E6F3F500054CA8 /* VHInteractiveViewController+Layout.m in Sources */,
 				C0B8797122E6F3C900054CA8 /* CALayer+XibConfiguration.m in Sources */,
 				C0B8796F22E6F3C900054CA8 /* ITTXibViewUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C0EF334225C1990B000004D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0EF334D25C1990B000004D4 /* SampleHandler.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C0EF335025C1990B000004D4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C0EF334525C1990B000004D4 /* VHScreenShare */;
+			targetProxy = C0EF334F25C1990B000004D4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C0B8792C22E6F31300054CA8 /* Main.storyboard */ = {
@@ -647,6 +845,7 @@
 		};
 		C0B8793A22E6F32600054CA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 06A8CBBC1596DE1F2FEAC3A3 /* Pods-VHYunSDKDemo_RTC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -654,14 +853,13 @@
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
 				INFOPLIST_FILE = VHYunSDKDemo_RTC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -671,6 +869,7 @@
 		};
 		C0B8793B22E6F32600054CA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9B9910561946645EB8653FA /* Pods-VHYunSDKDemo_RTC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -678,17 +877,64 @@
 				CURRENT_PROJECT_VERSION = 0;
 				DEVELOPMENT_TEAM = H49DK955B9;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/../VHYunFrameworks";
 				INFOPLIST_FILE = VHYunSDKDemo_RTC/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2.0;
+				MARKETING_VERSION = 2.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C0EF335325C1990B000004D4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H49DK955B9;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../VHYunFrameworks";
+				INFOPLIST_FILE = VHScreenShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc.VHScreenShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C0EF335425C1990B000004D4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = H49DK955B9;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/../VHYunFrameworks";
+				INFOPLIST_FILE = VHScreenShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 2.3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.vhallyun.rtc.VHScreenShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -710,6 +956,15 @@
 			buildConfigurations = (
 				C0B8793A22E6F32600054CA8 /* Debug */,
 				C0B8793B22E6F32600054CA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C0EF335525C1990B000004D4 /* Build configuration list for PBXNativeTarget "VHScreenShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C0EF335325C1990B000004D4 /* Debug */,
+				C0EF335425C1990B000004D4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
