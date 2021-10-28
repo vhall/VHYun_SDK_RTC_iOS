@@ -21,6 +21,9 @@
 @property(nonatomic,copy) NSString * userData;//用户数据 进入房间自定义数据
 @property(nonatomic,copy) NSString * streamData;//流数据 推流前放入本地流的自定义数据
 
+@property(nonatomic,assign) VHInteractiveRoomMode mode;//应用场景模式，选填，可选值参考 VHInteractiveRoomMode。支持版本：2.3.2及以上
+@property(nonatomic,assign) VHInteractiveRoomRole role;//用户角色，选填，可选值参考下文VHInteractiveRoomRole。当mode为rtc模式时，不需要配置role。支持版本：2.3.2及以上
+
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;//画面布局容器
 @property (nonatomic,strong) VHLayoutView   *layoutView;//画面布局

@@ -26,6 +26,9 @@
     UITextField *_businessIDTextField;
     UITextField *_accessTokenTextField;
     UITextField *_roomIDTextField;
+    
+    UISwitch *_modeSwitch;
+    UISwitch *_roleSwitch;
 }
 
 @end
@@ -70,6 +73,10 @@
     //    vc.anotherLiveRoomID= DEMO_Setting.anotherLiveRoomID;
     vc.userData         =  [DEMO_Setting.nickName stringByAppendingString:@"进入房间自定义数据"] ;
     vc.streamData       =  [DEMO_Setting.nickName stringByAppendingString:@"推流前放入本地流的自定义数据"] ;
+    
+    vc.mode = _modeSwitch.on?VHInteractiveRoomModeLive:VHInteractiveRoomModeRTC;
+    vc.role = _roleSwitch.on?VHInteractiveRoomRoleAudience:VHInteractiveRoomRoleHost;
+    
     vc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
@@ -152,8 +159,21 @@
     _roomIDTextField = roomIDTextField;
     [self.view addSubview:roomIDTextField];
     
-    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, roomIDTextField.bottom+10, accessTokenTextField.width, accessTokenTextField.height)];
-    [nextBtn setTitle:@"互动直播" forState:UIControlStateNormal];
+    
+    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(businessIDTextField.left, _roomIDTextField.bottom+10, 200, 30)];
+    label2.text = @"无延时直播模式";
+    _modeSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(businessIDTextField.right-50, label2.top, 50, 30)];
+    [self.view addSubview:label2];
+    [self.view addSubview:_modeSwitch];
+    
+    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(businessIDTextField.left, label2.bottom+10, 200, 30)];
+    label1.text = @"无延时观众角色";
+    _roleSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(businessIDTextField.right-50, label1.top, 50, 30)];
+    [self.view addSubview:label1];
+    [self.view addSubview:_roleSwitch];
+    
+    UIButton *nextBtn = [[UIButton alloc] initWithFrame:CGRectMake(accessTokenTextField.left, label1.bottom+10, accessTokenTextField.width, accessTokenTextField.height)];
+    [nextBtn setTitle:@"互动&直播" forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(inavBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     nextBtn.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:nextBtn];

@@ -21,6 +21,16 @@ typedef NS_ENUM(NSInteger, VHInteractiveRoomStatus) {
     VHInteractiveRoomStatusDisconnected,
     VHInteractiveRoomStatusError
 };
+
+typedef NS_ENUM(NSInteger, VHInteractiveRoomMode) {
+    VHInteractiveRoomModeRTC,//默认为互动房间 实时通信场景，例如互动连麦
+    VHInteractiveRoomModeLive//无延迟直播房间 直播场景，例如无延迟直播
+};
+typedef NS_ENUM(NSInteger, VHInteractiveRoomRole) {
+    VHInteractiveRoomRoleHost,//    可以发布和订阅互动流
+    VHInteractiveRoomRoleAudience//    只能订阅互动流，无法发布
+};
+
 // param code 200 success ,otherwise fail;
 typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 
@@ -59,7 +69,8 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
  * 是否正在推流
  */
 @property (nonatomic, assign, readonly) BOOL            isPublishing;
-
+@property (nonatomic, assign, readonly) VHInteractiveRoomMode            mode;
+@property (nonatomic, assign, readonly) VHInteractiveRoomRole            role;
 /*
  * 房间重连次数
  * 默认 5次
@@ -112,6 +123,23 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 */
 
 - (void)enterRoomWithRoomId:(const NSString *)inav_id broadCastId:(const NSString *)broadCastId accessToken:(const NSString *)accessToken userData:(NSString*)userData;
+
+/*
+* 加入房间
+* @param inav_id 互动房间id
+* @param broadCastId 旁路房间id
+* @param accessToken  accessToken
+* @param userData  用户数据可以携带不超过255字符的字符串 可在VHRenderView中获取此值
+ * @param mode  //应用场景模式，选填，可选值参考 VHInteractiveRoomMode。支持版本：2.3.2及以上
+ * @param role  //用户角色，选填，可选值参考下文VHInteractiveRoomRole。当mode为rtc模式时，不需要配置role。支持版本：2.3.2及以上
+* 调用完成等待代理回调确认接下来操作
+*/
+- (void)enterRoomWithRoomId:(const NSString *)inav_id
+                broadCastId:(const NSString *)broadCastId
+                accessToken:(const NSString *)accessToken
+                   userData:(NSString*)userData
+                       mode:(VHInteractiveRoomMode)mode
+                       role:(VHInteractiveRoomRole)role;
 /*
 * 加入房间
 * @param inav_id 互动房间id
@@ -143,6 +171,7 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 /*
  * 上麦推流
  * @param camera 本地摄像头view 也可以是录屏view 尝试推录屏流 需要同步启动 系统录屏界面触发正式推流
+ * 返回值  NO 请检查cameraView 是否创建， 进入房间角色是否是观众
  */
 - (BOOL)publishWithCameraView:(VHRenderView*) cameraView;
 

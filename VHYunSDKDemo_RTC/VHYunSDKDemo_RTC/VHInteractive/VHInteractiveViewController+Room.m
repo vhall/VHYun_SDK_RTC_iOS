@@ -27,7 +27,12 @@
 - (void)enterRoom
 {
     [self createRoom];
-    [self.room enterRoomWithRoomId:self.ilssRoomID broadCastId:self.anotherLiveRoomId accessToken:self.accessToken userData:self.userData];
+    [self.room enterRoomWithRoomId:self.ilssRoomID
+                       broadCastId:self.anotherLiveRoomId
+                       accessToken:self.accessToken
+                          userData:self.userData
+                              mode:self.mode
+                              role:self.role];
 }
 
 - (void)leaveRoom
@@ -53,7 +58,10 @@
     {
         [self.cameraView setAttributes:self.streamData];
         
-        [self.room publishWithCameraView:self.cameraView];
+        if(![self.room publishWithCameraView:self.cameraView])
+        {
+            [self showMsg:@"请检查是否设置了无延时观众角色" afterDelay:2];
+        }
     }
 }
 
