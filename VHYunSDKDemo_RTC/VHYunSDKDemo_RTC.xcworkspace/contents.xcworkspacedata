@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../vhallyun_sdk_base/VHBasePlatform.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:../VHInteractive.xcodeproj">
    </FileRef>
    <FileRef

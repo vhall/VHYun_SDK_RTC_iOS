@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_RTC"
-  s.version         = "2.4.0"
+  s.version         = "2.4.1"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'
@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = {
     'FRAMEWORK_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
     'HEADER_SEARCH_PATHS' => '$(inherited) $(PODS_ROOT)/**',
-    'VALID_ARCHS' => 'x86_64 armv7 arm64',
+    'VALID_ARCHS' => 'armv7 arm64',
   }
 
-  s.dependency 'VHCore','>=2.0.3'
+  s.dependency 'VHCore','>=2.2.0'
 end

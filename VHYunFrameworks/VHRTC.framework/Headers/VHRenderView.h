@@ -115,6 +115,11 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
  */
 - (void)updateOptions:(NSDictionary*)options;
 
+/**
+ * 使画面镜像，不会影响推流的视频方向
+ */
+- (void)useMirror;
+
 // 设置预览画面方向
 - (BOOL)setDeviceOrientation:(UIDeviceOrientation)deviceOrientation;
 
