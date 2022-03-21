@@ -308,7 +308,7 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 @interface VHRenderView (ThirdpartyBeautify)
 /// 使用VHBeautifyTool美颜
 /// @param module 来自于VHBeautifyTool中的Module
-- (void)useBeautifyModule:(id<IVHBeautifyModule>)module;
+- (void)useBeautifyModule:(id<IVHBeautifyModule>)module HandleError:(void(^)(NSError *error))handle;
 @end
 
 NS_ASSUME_NONNULL_END
