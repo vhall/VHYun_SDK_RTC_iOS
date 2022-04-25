@@ -20,5 +20,5 @@ Pod::Spec.new do |s|
     'VALID_ARCHS' => 'armv7 arm64',
   }
 
-  s.dependency 'VHCore','>=2.3.0'
+  s.dependency 'VHCore','>=2.3.1'
 end
