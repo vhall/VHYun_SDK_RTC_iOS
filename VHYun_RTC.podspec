@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name            = "VHYun_RTC"
-  s.version         = "2.6.0"
+  s.version         = "2.7.0"
   s.author          = { "wangxiaoxiang" => "xiaoxiang.wang@vhall.com" }
   s.license         = { :type => "MIT", :file => "LICENSE" }
   s.homepage        = 'https://www.vhall.com'

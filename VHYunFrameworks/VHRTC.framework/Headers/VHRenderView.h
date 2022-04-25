@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
-#import "IVHBeautifyModule.h"
+
+@protocol IVHBeautifyModule;
+@class VHRtcPlayer;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -78,6 +80,8 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 
 ///推流摄像头view类，该类定义了摄像头视图的创建、推流等Api，通过此类进行互动推流。使用此类请先在plist文件中添加对于摄像头和麦克风的权限描述。
 @interface VHRenderView : UIView
+
++ (VHRtcPlayer *)fastLivePlayer;
 
 /*
  * 创建本地摄像头view
