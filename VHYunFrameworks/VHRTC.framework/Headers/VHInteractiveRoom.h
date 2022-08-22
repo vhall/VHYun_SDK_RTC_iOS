@@ -8,9 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "VHRenderView.h"
+
 #import "VHBroadCastDef.h"
 
-NS_ASSUME_NONNULL_BEGIN
+typedef enum : NSUInteger {
+    RoomBGCropTypeAspectFit  = 0,       // 等比缩放至画布
+    RoomBGCropTypeAspectFill = 1,       // 裁剪图片和画布宽高比一致，再缩放至画布
+    RoomBGCropTypeFill       = 2,       // 直接拉伸填满画布 [默认]
+} RoomBGCropType;
 
 /*
  * 互动房间状态
@@ -235,6 +240,8 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
  */
 - (BOOL)kickoutUserList:(void(^)(NSArray* userList,NSError* error)) block;
 #pragma mark - 旁路操作
+/// 设置是否加入混流
+- (void)setRoomBroadCastMixOption:(NSDictionary *)dict mode:(NSString *)modeStr finish:(void(^)(int code, NSString * _Nonnull message))handle;
 /*
  * 开启/关闭旁路直播 (使用该方法前提:加入房间初始化方法使用enterRoomWithRoomId:broadCastId:accessToken:userData:)
  * @param isOpen Yes开启旁路直播   NO关闭旁路直播
@@ -254,6 +261,31 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
  * mode 默认nil
  */
 - (void)setMixLayoutMode:(int)layoutMode mode:(NSString*_Nullable)mode finish:(VhallFinishBlock _Nullable)finish;
+
+/// 设置当前画面为主屏
+- (void)settingRoomBroadCastMainScreenFromCamera:(VhallFinishBlock _Nullable)handle;
+
+/// 设置当前文档融屏为主屏
+- (void)settingRoomBroadCastMainScreenFromDocMix:(VhallFinishBlock _Nullable)handle;
+
+
+/// 设置旁路背景图
+/// @param url 背景图URL,如果为空，则为取消背景图
+/// @param cropType 填充类型:RoomBGCropType
+/// @param finish 设置后的回调,成功:200
+- (void)settingRoomBroadCastBackgroundImageURL:(NSURL *_Nullable)url cropType:(RoomBGCropType)cropType finishHandle:(VhallFinishBlock _Nullable)finish;
+
+/// 设置旁路头像占位图
+/// @param url 头像占位图URL,如果为空，则为取消占位图
+/// @param finish 设置后的回调,成功:200
+- (void)settingRoomBroadCastPlaceholderImageURL:(NSURL *_Nullable)url finishHandle:(VhallFinishBlock _Nullable)finish;
+
+/// 是否开启文档融屏旁路
+/// @param enable 开启/关闭
+/// @param channelID 文档channelID
+/// @param finish 设置后的回调,成功:20041
+- (void)settingRoomBroadCastDocMixEnable:(BOOL)enable channelID:(NSString *_Nonnull)channelID finishHandle:(VhallFinishBlock _Nullable)finish;
+
 /**
  *  获得当前SDK版本号
  */
@@ -362,6 +394,21 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
  @discussion onStreamMixed
  */
 - (void)room:(VHInteractiveRoom *)room onStreamMixed:(NSDictionary *)msg;
+
+/// 染推流成功
+/// @param room VHInteractiveRoom
+/// @param msg msg
+- (void)room:(VHInteractiveRoom *)room docMixStreamStart:(NSDictionary *)msg;
+
+/// 停止渲染推流
+/// @param room VHInteractiveRoom
+/// @param msg msg
+- (void)room:(VHInteractiveRoom *)room docMixStreamStop:(NSDictionary *)msg;
+
+/// 染推流失败(推流成功后出现异常)
+/// @param room VHInteractiveRoom
+/// @param msg msg
+- (void)room:(VHInteractiveRoom *)room docMixStreamFailed:(NSDictionary *)msg;
 @end
 
 /*
@@ -371,4 +418,3 @@ typedef void(^VhallFinishBlock)(int code, NSString * _Nonnull message);
 284002 VHRoomErrorClientFailedSDP
 284003 VHRoomErrorSignaling
 */
-NS_ASSUME_NONNULL_END

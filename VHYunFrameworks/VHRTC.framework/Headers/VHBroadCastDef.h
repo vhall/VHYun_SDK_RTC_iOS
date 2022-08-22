@@ -92,18 +92,19 @@ typedef NS_ENUM(NSInteger, BroadcastLayout) {
     CANVAS_LAYOUT_EX_PATTERN_GRID_16_E           = 29,//    4行4列等分布局
     CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TR         = 30,// 主次悬浮，大屏铺满，小屏悬浮右上角 (小窗宽=画布宽度/5，比例为4:3)支持竖版布局，参考PaaS需求： paas pm
     CANVAS_LAYOUT_EX_PATTERN_FLOAT_2_1TL         = 31,// 主次悬浮，大屏铺满，小屏悬浮左上角 (小窗宽=画布宽度/5，比例为4:3)支持竖版布局，参考PaaS需求： paas pm
-    CANVAS_LAYOUT_PATTERN__COUNT//
+    CANVAS_ADAPTIVE_LAYOUT_GRID_MODE        = 101,    // 自适应均分模式
+    CANVAS_ADAPTIVE_LAYOUT_TILED_MODE       = 102,    // 自适应平铺模式
+    CANVAS_ADAPTIVE_LAYOUT_FLOAT_MODE       = 103,    // 自适应悬浮模式
+    CANVAS_ADAPTIVE_LAYOUT_TILED_EXT1_MODE  = 104,    // 窗格位于主屏上方，最多16窗格
 };
 
 @interface VHBroadCastDef : NSObject
-/*
- * 基础配置旁路混流参数
- * http://wiki.vhallops.com/pages/viewpage.action?title=Room&spaceKey=media#Room-%E9%85%8D%E7%BD%AE%E6%97%81%E8%B7%AF%E5%8F%82%E6%95%B0
- * // 基本参数，满足大部分旁路配置需求
- * @parma definition // 视频质量参数，推荐使用。即（分辨率+帧率+码率）
- * @parma url        // 推流地址
- * @parma layout     // 旁路布局模板（非自定义布局）
-*/
-+ (NSDictionary*)baseConfigRoomBroadCast:(BroadcastDefinition)definition broadCastUrl:(NSString*)url layout:(BroadcastLayout)layout;
+/// 配置旁路混流参数(自适应)
+/// @param definition 视频质量参数，推荐使用。即（分辨率+帧率+码率）
+/// @param url 推流地址
+/// @param layout 布局模式(包括了手动布局和自适应布局)
+/// @link http://wiki.vhallops.com/pages/viewpage.action?pageId=195953265#id-%E6%97%81%E8%B7%AF%E6%B7%B7%E6%B5%81%E7%AD%96%E7%95%A5%E4%BC%98%E5%8C%96_SDK%E5%AF%B9%E6%8E%A5-ConfigRoomBroadCast
++ (NSDictionary *)baseConfigRoomBroadCast:(BroadcastDefinition)definition broadCastUrl:(NSString*)url layout:(BroadcastLayout)layout;
 @end
+
 #endif /* VHBroadCastDef_h */
