@@ -30,6 +30,9 @@ extern NSString * const VHMaxVideoBitrateKey;   //推流最大码率 默认300
 extern NSString * const VHCurrentBitrateKey;   //当前推流码率
 extern NSString * const VHMinBitrateKbpsKey;   //推流最小码率 默认100
 
+extern NSString * const VHStreamOptionMixVideo; ///< 旁路混流是否加入视频
+extern NSString * const VHStreamOptionMixAudio; ///< 旁路混流是否加入音频
+
 /*
  * 摄像头及推流参数设置
  */
@@ -58,7 +61,10 @@ typedef NS_ENUM(int, VHInteractiveStreamType) {
     VHInteractiveStreamTypeOnlyVideo       = 1,//纯视频
     VHInteractiveStreamTypeAudioAndVideo   = 2,//音视频 默认
     VHInteractiveStreamTypeScreen          = 3,//共享桌面 暂不支持
-    VHInteractiveStreamTypeFile            = 4 //插播  暂不支持
+    VHInteractiveStreamTypeFile            = 4, //插播  暂不支持
+    VHInteractiveStreamTypeVideoPatrol     = 5,
+    VHInteractiveStreamTypeCustom          = 6
+
 };
 
 typedef NS_ENUM(int, VHFrameResolutionValue) {
@@ -121,9 +127,12 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
 - (void)updateOptions:(NSDictionary*)options;
 
 /**
- * 使画面镜像，不会影响推流的视频方向
+ * 实时改变摄像头分辨率和帧率
+ * @param resolution 分辨率
+ * @param fps 帧率，0 < fps < 31
+ * @link 推流过程中 尽量保持跟之前帧率一致
  */
-- (void)useMirror __deprecated_msg("当前版本不推荐使用该方法，可能会引发后摄像头的镜像问题");
+- (BOOL)changeCaptureResolution:(VHFrameResolutionValue)resolution fps:(NSInteger)fps;
 
 // 设置预览画面方向
 - (BOOL)setDeviceOrientation:(UIDeviceOrientation)deviceOrientation;
@@ -255,6 +264,9 @@ typedef void(^FinishBlock)(int code, NSString * _Nullable message);//code 200 �
  * 切换前后摄像头
  */
 - (AVCaptureDevicePosition) switchCamera;
+
+/// 镜像前置摄像头
+- (void)camVidMirror:(BOOL)mirror;
 
 /*
  * 获取流状态
