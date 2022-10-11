@@ -62,6 +62,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// 他人下麦消息
 - (void)room:(VHInteractiveRoom *)room didRemovedAttendView:(VHRenderView *)attendView;
 
+/// 文档融屏流上线(订阅)
+- (void)room:(VHInteractiveRoom *)room didAddDocmentAttendView:(VHRenderView *)attendView;
+
+/// 文档融屏流下线(订阅)
+- (void)room:(VHInteractiveRoom *)room didRemovedDocmentAttendView:(VHRenderView *)attendView;
+
 #pragma mark - 上下麦推流信息回调
 
 /// 收到别人上麦申请 调用审核申请上麦接口回复
@@ -134,6 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) int reconnectTimes;           ///< 房间重连次数 (默认 5次)
 @property (nonatomic, assign) BOOL isOnlyAudioSubscribe;    ///< 是否只订阅音频流 (默认为NO 订阅音视频流 enterRoomWithToken 前有效， YES只订阅音频流，可以 unmuteVideo 打开视频)
 @property (nonatomic) BOOL isAdaptResolution;   ///< 自适应分辨率 (默认开启, 根据网速来降低分辨率)
+@property (nonatomic) BOOL isSubscribeDocStream; ///< 是否开启文档融屏流的订阅
 /*
  * 进入互动房间后可用权限
  * 注: didEnterRoom 后调用有效 具体权限如下：
@@ -204,7 +211,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 上麦推流
 /// @param cameraView 本地摄像头view 也可以是录屏view 尝试推录屏流 需要同步启动 系统录屏界面触发正式推流
 /// @return 如果False:请检查cameraView 是否创建， 进入房间角色是否是观众
-- (BOOL)publishWithCameraView:(VHRenderView*) cameraView;
+- (BOOL)publishWithCameraView:(VHRenderView*)cameraView error:(NSError **)error;
+- (BOOL)publishWithCameraView:(VHRenderView*) cameraView __deprecated_msg("use -[publishWithCamerView: error:]");
 
 /// 下麦停止推流
 - (BOOL)unpublish;
