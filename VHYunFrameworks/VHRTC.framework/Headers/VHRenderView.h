@@ -53,8 +53,9 @@ typedef NS_ENUM(int, VHInteractiveStreamType) {
     VHInteractiveStreamTypeScreen          = 3,//共享桌面 暂不支持
     VHInteractiveStreamTypeFile            = 4, //插播  暂不支持
     VHInteractiveStreamTypeVideoPatrol     = 5,
-    VHInteractiveStreamTypeCustom          = 6
-
+    VHInteractiveStreamTypeCustom          = 6,
+    VHInteractiveStreamTypeDocumentMix     = 100,    ///< 文档融屏
+    VHInteractiveStreamTypeCloudPlayer     = 101,  ///< 云插播
 };
 
 typedef NS_ENUM(int, VHFrameResolutionValue) {

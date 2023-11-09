@@ -109,20 +109,15 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param msg 详细消息
 - (void)room:(VHInteractiveRoom *)room onStreamMixed:(NSDictionary *)msg;
 
-/// 染推流成功
+/// 云插播添加
 /// @param room VHInteractiveRoom
 /// @param msg 详细消息
-- (void)room:(VHInteractiveRoom *)room docMixStreamStart:(NSDictionary *)msg;
+- (void)room:(VHInteractiveRoom *)room didInternalStreamAdded:(NSDictionary *)msg;
 
-/// 停止渲染推流
+/// 云插播移除
 /// @param room VHInteractiveRoom
 /// @param msg 详细消息
-- (void)room:(VHInteractiveRoom *)room docMixStreamStop:(NSDictionary *)msg;
-
-/// 染推流失败(推流成功后出现异常)
-/// @param room VHInteractiveRoom
-/// @param msg 详细消息
-- (void)room:(VHInteractiveRoom *)room docMixStreamFailed:(NSDictionary *)msg;
+- (void)room:(VHInteractiveRoom *)room didInternalStreamRemoved:(NSDictionary *)msg;
 @end
 
 @interface VHInteractiveRoom : NSObject
@@ -141,6 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isOnlyAudioSubscribe;    ///< 是否只订阅音频流 (默认为NO 订阅音视频流 enterRoomWithToken 前有效， YES只订阅音频流，可以 unmuteVideo 打开视频)
 @property (nonatomic) BOOL isAdaptResolution;   ///< 自适应分辨率 (默认开启, 根据网速来降低分辨率)
 @property (nonatomic) BOOL isSubscribeDocStream; ///< 是否开启文档融屏流的订阅
+@property (nonatomic) BOOL isAutoSubscribeCloudPlayer;    ///< 是否开启云端插播的订阅
 /*
  * 进入互动房间后可用权限
  * 注: didEnterRoom 后调用有效 具体权限如下：
